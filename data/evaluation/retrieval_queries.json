@@ -1,0 +1,555 @@
+[
+  {
+    "id": "QUERY-001",
+    "query": "casa com quintal",
+    "filters": {
+      "property_type": "casa"
+    },
+    "relevant_property_ids": [
+      "IMOB-001",
+      "IMOB-025",
+      "IMOB-045"
+    ],
+    "split": "development",
+    "category": "literal",
+    "notes": "Casas disponíveis cujo texto ou características indicam quintal.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-002",
+    "query": "moradia com espaço externo para pets",
+    "filters": {
+      "property_type": "casa",
+      "pets_allowed": true
+    },
+    "relevant_property_ids": [
+      "IMOB-005",
+      "IMOB-017",
+      "IMOB-021",
+      "IMOB-029",
+      "IMOB-033",
+      "IMOB-045"
+    ],
+    "split": "development",
+    "category": "synonym",
+    "notes": "Casas disponíveis que aceitam animais; a consulta usa moradia e pets como variações lexicais.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-003",
+    "query": "apartamento pronto para morar",
+    "filters": {
+      "property_type": "apartamento",
+      "furnished": true
+    },
+    "relevant_property_ids": [
+      "IMOB-002",
+      "IMOB-006",
+      "IMOB-010",
+      "IMOB-014",
+      "IMOB-018",
+      "IMOB-026",
+      "IMOB-030",
+      "IMOB-034",
+      "IMOB-038",
+      "IMOB-042"
+    ],
+    "split": "development",
+    "category": "paraphrase",
+    "notes": "Apartamentos disponíveis marcados como mobiliados, interpretados como opções prontas para uso.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-004",
+    "query": "lugar para uma equipe pequena trabalhar",
+    "filters": {
+      "purpose": "aluguel",
+      "property_type": "comercial"
+    },
+    "relevant_property_ids": [
+      "IMOB-003",
+      "IMOB-019",
+      "IMOB-027",
+      "IMOB-043"
+    ],
+    "split": "development",
+    "category": "implicit_intent",
+    "notes": "Espaços comerciais disponíveis para escritório, equipe reduzida ou atividade administrativa.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-005",
+    "query": "lote onde seja possível construir uma residência",
+    "filters": {
+      "property_type": "terreno"
+    },
+    "relevant_property_ids": [
+      "IMOB-008",
+      "IMOB-012",
+      "IMOB-016",
+      "IMOB-020",
+      "IMOB-024",
+      "IMOB-032",
+      "IMOB-036",
+      "IMOB-040",
+      "IMOB-044",
+      "IMOB-048"
+    ],
+    "split": "development",
+    "category": "synonym",
+    "notes": "Todos os terrenos disponíveis são alternativas razoáveis para estudo de construção no cenário fictício.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-006",
+    "query": "opção econômica para aluguel",
+    "filters": {
+      "purpose": "aluguel",
+      "max_price": 1800
+    },
+    "relevant_property_ids": [
+      "IMOB-001",
+      "IMOB-002",
+      "IMOB-010",
+      "IMOB-012"
+    ],
+    "split": "development",
+    "category": "numeric_filter",
+    "notes": "Imóveis disponíveis para aluguel com valor de até R$ 1.800.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-007",
+    "query": "imóvel para família com dois carros",
+    "filters": {
+      "min_bedrooms": 3,
+      "min_parking_spaces": 2
+    },
+    "relevant_property_ids": [
+      "IMOB-010",
+      "IMOB-013",
+      "IMOB-014",
+      "IMOB-025",
+      "IMOB-026",
+      "IMOB-029",
+      "IMOB-030",
+      "IMOB-042",
+      "IMOB-045"
+    ],
+    "split": "development",
+    "category": "implicit_intent",
+    "notes": "Imóveis residenciais disponíveis com três ou mais dormitórios e duas ou mais vagas.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-008",
+    "query": "apartamento com móveis planejados",
+    "filters": {
+      "property_type": "apartamento"
+    },
+    "relevant_property_ids": [
+      "IMOB-006",
+      "IMOB-014"
+    ],
+    "split": "development",
+    "category": "specific_feature",
+    "notes": "Apartamentos disponíveis cujas características mencionam móveis ou cozinha planejada.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-009",
+    "query": "imóvel com área gourmet",
+    "filters": {},
+    "relevant_property_ids": [
+      "IMOB-017"
+    ],
+    "split": "development",
+    "category": "literal",
+    "notes": "Único imóvel disponível com a característica exata área gourmet.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-010",
+    "query": "apartamento compacto para uma pessoa",
+    "filters": {
+      "property_type": "apartamento"
+    },
+    "relevant_property_ids": [
+      "IMOB-002",
+      "IMOB-034"
+    ],
+    "split": "development",
+    "category": "paraphrase",
+    "notes": "Apartamentos disponíveis descritos explicitamente como compactos.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-011",
+    "query": "apartamento em Sao Paulo",
+    "filters": {
+      "property_type": "apartamento",
+      "city": "São Paulo"
+    },
+    "relevant_property_ids": [
+      "IMOB-010",
+      "IMOB-034"
+    ],
+    "split": "development",
+    "category": "accent_variation",
+    "notes": "Apartamentos disponíveis em São Paulo; a consulta omite o acento.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-012",
+    "query": "SALA COMERCIAL EM FRANCA",
+    "filters": {
+      "property_type": "comercial",
+      "city": "Franca"
+    },
+    "relevant_property_ids": [
+      "IMOB-007",
+      "IMOB-019",
+      "IMOB-031",
+      "IMOB-043"
+    ],
+    "split": "development",
+    "category": "case_variation",
+    "notes": "Espaços comerciais disponíveis em Franca com consulta em caixa alta.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-013",
+    "query": "imóvel sem barreiras de acesso",
+    "filters": {},
+    "relevant_property_ids": [
+      "IMOB-011",
+      "IMOB-029"
+    ],
+    "split": "development",
+    "category": "synonym",
+    "notes": "Imóveis disponíveis com acessibilidade ou descrição de circulação sem degraus.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-014",
+    "query": "imóvel amplo",
+    "filters": {
+      "min_area_m2": 150
+    },
+    "relevant_property_ids": [
+      "IMOB-008",
+      "IMOB-012",
+      "IMOB-016",
+      "IMOB-020",
+      "IMOB-024",
+      "IMOB-025",
+      "IMOB-029",
+      "IMOB-032",
+      "IMOB-033",
+      "IMOB-036",
+      "IMOB-037",
+      "IMOB-039",
+      "IMOB-040",
+      "IMOB-042",
+      "IMOB-043",
+      "IMOB-044",
+      "IMOB-045",
+      "IMOB-047",
+      "IMOB-048"
+    ],
+    "split": "development",
+    "category": "ambiguous",
+    "notes": "Imóveis disponíveis com área mínima de 150 m²; amplo é um termo subjetivo operacionalizado pelo filtro.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-015",
+    "query": "casa para comprar em Belo Horizonte que aceite cachorro",
+    "filters": {
+      "purpose": "venda",
+      "property_type": "casa",
+      "city": "Belo Horizonte",
+      "pets_allowed": true
+    },
+    "relevant_property_ids": [
+      "IMOB-005",
+      "IMOB-029"
+    ],
+    "split": "development",
+    "category": "multiple_constraints",
+    "notes": "Casas disponíveis para venda em Belo Horizonte que aceitam animais.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-016",
+    "query": "lar com espaço para bichos",
+    "filters": {
+      "property_type": "casa",
+      "pets_allowed": true
+    },
+    "relevant_property_ids": [
+      "IMOB-005",
+      "IMOB-017",
+      "IMOB-021",
+      "IMOB-029",
+      "IMOB-033",
+      "IMOB-045"
+    ],
+    "split": "development",
+    "category": "lexical_challenge",
+    "notes": "Casas disponíveis que aceitam animais; lar e bichos não aparecem como termos controlados.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-017",
+    "query": "escritório com rede para equipe",
+    "filters": {
+      "property_type": "comercial"
+    },
+    "relevant_property_ids": [
+      "IMOB-019",
+      "IMOB-027"
+    ],
+    "split": "development",
+    "category": "specific_feature",
+    "notes": "Espaços comerciais disponíveis com infraestrutura de rede.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-018",
+    "query": "casa com lareira",
+    "filters": {
+      "property_type": "casa"
+    },
+    "relevant_property_ids": [],
+    "split": "development",
+    "category": "no_result",
+    "notes": "Nenhuma casa disponível possui lareira no catálogo.",
+    "expected_no_results": true
+  },
+  {
+    "id": "QUERY-019",
+    "query": "apartamento em Salvador",
+    "filters": {
+      "property_type": "apartamento",
+      "city": "Salvador"
+    },
+    "relevant_property_ids": [],
+    "split": "development",
+    "category": "no_result",
+    "notes": "Salvador não está presente no catálogo sintético.",
+    "expected_no_results": true
+  },
+  {
+    "id": "QUERY-020",
+    "query": "aluguel por até quinhentos reais",
+    "filters": {
+      "purpose": "aluguel",
+      "max_price": 500
+    },
+    "relevant_property_ids": [],
+    "split": "development",
+    "category": "no_result",
+    "notes": "O orçamento está abaixo de todos os imóveis disponíveis para aluguel.",
+    "expected_no_results": true
+  },
+  {
+    "id": "QUERY-021",
+    "query": "apartamento com varanda",
+    "filters": {
+      "property_type": "apartamento"
+    },
+    "relevant_property_ids": [
+      "IMOB-002",
+      "IMOB-010",
+      "IMOB-034"
+    ],
+    "split": "test",
+    "category": "literal",
+    "notes": "Apartamentos disponíveis com varanda ou sacada descrita.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-022",
+    "query": "moradia com garagem para dois veículos",
+    "filters": {
+      "min_bedrooms": 2,
+      "min_parking_spaces": 2
+    },
+    "relevant_property_ids": [
+      "IMOB-010",
+      "IMOB-013",
+      "IMOB-014",
+      "IMOB-025",
+      "IMOB-026",
+      "IMOB-029",
+      "IMOB-030",
+      "IMOB-042",
+      "IMOB-045"
+    ],
+    "split": "test",
+    "category": "synonym",
+    "notes": "Imóveis residenciais disponíveis com ao menos dois dormitórios e duas vagas.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-023",
+    "query": "terreno grande para projeto futuro",
+    "filters": {
+      "property_type": "terreno",
+      "min_area_m2": 400
+    },
+    "relevant_property_ids": [
+      "IMOB-032",
+      "IMOB-036",
+      "IMOB-040",
+      "IMOB-044",
+      "IMOB-048"
+    ],
+    "split": "test",
+    "category": "paraphrase",
+    "notes": "Terrenos disponíveis com pelo menos 400 m².",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-024",
+    "query": "apartamento onde eu possa trabalhar de casa",
+    "filters": {
+      "property_type": "apartamento"
+    },
+    "relevant_property_ids": [
+      "IMOB-002"
+    ],
+    "split": "test",
+    "category": "implicit_intent",
+    "notes": "O IMOB-002 possui espaço de trabalho junto à janela.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-025",
+    "query": "prédio com acesso por elevador",
+    "filters": {
+      "property_type": "apartamento"
+    },
+    "relevant_property_ids": [
+      "IMOB-014",
+      "IMOB-018"
+    ],
+    "split": "test",
+    "category": "specific_feature",
+    "notes": "Apartamentos disponíveis com elevador nas características ou descrição.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-026",
+    "query": "comprar espaço comercial amplo em Belo Horizonte",
+    "filters": {
+      "purpose": "venda",
+      "property_type": "comercial",
+      "city": "Belo Horizonte"
+    },
+    "relevant_property_ids": [
+      "IMOB-023",
+      "IMOB-047"
+    ],
+    "split": "test",
+    "category": "multiple_constraints",
+    "notes": "Espaços comerciais disponíveis para venda em Belo Horizonte.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-027",
+    "query": "escritório para alugar em Ribeirao Preto",
+    "filters": {
+      "purpose": "aluguel",
+      "property_type": "comercial",
+      "city": "Ribeirão Preto"
+    },
+    "relevant_property_ids": [
+      "IMOB-003",
+      "IMOB-027"
+    ],
+    "split": "test",
+    "category": "accent_variation",
+    "notes": "Espaços comerciais disponíveis para aluguel em Ribeirão Preto, consultado sem acento.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-028",
+    "query": "TERRENO EM CURITIBA",
+    "filters": {
+      "property_type": "terreno",
+      "city": "Curitiba"
+    },
+    "relevant_property_ids": [
+      "IMOB-012",
+      "IMOB-024",
+      "IMOB-036",
+      "IMOB-048"
+    ],
+    "split": "test",
+    "category": "case_variation",
+    "notes": "Terrenos disponíveis em Curitiba com consulta em caixa alta.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-029",
+    "query": "lote para erguer uma residência",
+    "filters": {
+      "property_type": "terreno"
+    },
+    "relevant_property_ids": [
+      "IMOB-008",
+      "IMOB-012",
+      "IMOB-016",
+      "IMOB-020",
+      "IMOB-024",
+      "IMOB-032",
+      "IMOB-036",
+      "IMOB-040",
+      "IMOB-044",
+      "IMOB-048"
+    ],
+    "split": "test",
+    "category": "lexical_challenge",
+    "notes": "Terrenos disponíveis; erguer residência expressa intenção sem repetir o vocabulário predominante.",
+    "expected_no_results": false
+  },
+  {
+    "id": "QUERY-030",
+    "query": "imóvel por até cem reais",
+    "filters": {
+      "max_price": 100
+    },
+    "relevant_property_ids": [],
+    "split": "test",
+    "category": "no_result",
+    "notes": "O orçamento está abaixo de todos os imóveis disponíveis.",
+    "expected_no_results": true
+  },
+  {
+    "id": "QUERY-031",
+    "query": "casa econômica iluminada com jardim em Belo Horizonte",
+    "filters": {
+      "purpose": "aluguel",
+      "property_type": "casa",
+      "city": "Belo Horizonte"
+    },
+    "relevant_property_ids": [],
+    "split": "test",
+    "category": "no_result",
+    "notes": "O imóvel que reúne esses atributos, IMOB-041, está indisponível e deve ser excluído.",
+    "expected_no_results": true
+  },
+  {
+    "id": "QUERY-032",
+    "query": "imóvel com piscina",
+    "filters": {},
+    "relevant_property_ids": [],
+    "split": "test",
+    "category": "no_result",
+    "notes": "Nenhum imóvel disponível possui piscina no catálogo.",
+    "expected_no_results": true
+  }
+]
+
