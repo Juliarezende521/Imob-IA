@@ -2,7 +2,7 @@
 
 import argparse
 from collections import defaultdict
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from pathlib import Path
 from statistics import fmean
 from typing import Optional
@@ -28,10 +28,14 @@ DEFAULT_QUERIES_PATH = Path("data/evaluation/retrieval_queries.json")
 
 
 def evaluate_cases(
-    catalog: Sequence[Property], cases: Sequence[EvaluationCase]
+    catalog: Sequence[Property],
+    cases: Sequence[EvaluationCase],
+    retriever: Optional[
+        Callable[[Sequence[Property], EvaluationCase], list[str]]
+    ] = None,
 ) -> EvaluationReport:
     """Executa o baseline e agrega métricas sem alterar busca ou julgamentos."""
-    query_results = [_evaluate_case(catalog, case) for case in cases]
+    query_results = [_evaluate_case(catalog, case, retriever) for case in cases]
 
     split_groups: dict[str, list[QueryEvaluation]] = defaultdict(list)
     category_groups: dict[str, list[QueryEvaluation]] = defaultdict(list)
@@ -51,10 +55,12 @@ def evaluate_cases(
     )
 
 
-def render_markdown(report: EvaluationReport) -> str:
+def render_markdown(
+    report: EvaluationReport, title: str = "Avaliação do baseline lexical"
+) -> str:
     """Produz relatório Markdown determinístico."""
     lines = [
-        "# Avaliação do baseline lexical",
+        f"# {title}",
         "",
         "Este relatório mede o baseline determinístico sobre julgamentos manuais.",
         "Não há embeddings ou modelo de Inteligência Artificial nesta etapa.",
@@ -136,11 +142,16 @@ def render_markdown(report: EvaluationReport) -> str:
 
 
 def _evaluate_case(
-    catalog: Sequence[Property], case: EvaluationCase
+    catalog: Sequence[Property],
+    case: EvaluationCase,
+    retriever: Optional[Callable[[Sequence[Property], EvaluationCase], list[str]]],
 ) -> QueryEvaluation:
-    query = case.filters.model_copy(update={"text": case.query, "limit": None})
-    search_result = search_properties(catalog, query)
-    retrieved_ids = [item.property.id for item in search_result.items]
+    if retriever is None:
+        query = case.filters.model_copy(update={"text": case.query, "limit": None})
+        search_result = search_properties(catalog, query)
+        retrieved_ids = [item.property.id for item in search_result.items]
+    else:
+        retrieved_ids = retriever(catalog, case)
 
     if case.expected_no_results:
         return QueryEvaluation(
@@ -247,11 +258,38 @@ def main() -> None:
     parser.add_argument("--catalog", type=Path, default=DEFAULT_CATALOG_PATH)
     parser.add_argument("--queries", type=Path, default=DEFAULT_QUERIES_PATH)
     parser.add_argument("--output", type=Path)
+    parser.add_argument(
+        "--engine", choices=["lexical", "semantic", "compare"], default="lexical"
+    )
     args = parser.parse_args()
 
     catalog = load_catalog(args.catalog)
     cases = load_evaluation_cases(args.queries, catalog)
-    markdown = render_markdown(evaluate_cases(catalog, cases))
+    lexical_report = evaluate_cases(catalog, cases)
+    if args.engine == "lexical":
+        markdown = render_markdown(lexical_report)
+    else:
+        from imob_ai.semantic.config import SEMANTIC_THRESHOLD
+        from imob_ai.semantic.encoder import SentenceTransformerEncoder
+        from imob_ai.semantic.report import render_comparison
+        from imob_ai.semantic.service import SemanticSearchService
+
+        service = SemanticSearchService(SentenceTransformerEncoder())
+
+        def semantic_retriever(
+            items: Sequence[Property], case: EvaluationCase
+        ) -> list[str]:
+            query = case.filters.model_copy(update={"text": case.query, "limit": None})
+            result = service.search(items, query, threshold=SEMANTIC_THRESHOLD)
+            return [match.property.id for match in result.items]
+
+        semantic_report = evaluate_cases(catalog, cases, semantic_retriever)
+        if args.engine == "semantic":
+            markdown = render_markdown(
+                semantic_report, title="Avaliação da busca semântica"
+            )
+        else:
+            markdown = render_comparison(lexical_report, semantic_report)
     if args.output:
         args.output.write_text(markdown, encoding="utf-8")
     else:

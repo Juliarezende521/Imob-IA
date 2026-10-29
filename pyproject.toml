@@ -11,7 +11,9 @@ requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [{ name = "Julia" }]
 dependencies = [
+  "numpy==1.26.4",
   "pydantic==2.13.5",
+  "sentence-transformers==5.1.2",
 ]
 
 [project.optional-dependencies]
@@ -26,6 +28,9 @@ where = ["src"]
 [tool.pytest.ini_options]
 addopts = "-q"
 testpaths = ["tests"]
+markers = [
+  "model_integration: requer o modelo Sentence Transformers local ou acesso para download",
+]
 
 [tool.ruff]
 line-length = 88

@@ -4,7 +4,8 @@ Projeto de **engenharia de IA** aplicado a um problema imobiliário sintético.
 A prioridade é construir uma solução tecnicamente sólida, com Machine Learning,
 avaliação reproduzível, busca semântica e RAG com fontes.
 
-> Status: fundação do repositório. Ainda não há dataset, modelo treinado ou API.
+> Status: catálogo sintético, baseline lexical e busca semântica local com
+> avaliação reproduzível. Ainda não há modelo treinado pelo projeto ou API.
 
 ## Objetivo técnico
 
@@ -18,6 +19,11 @@ O projeto evoluirá em incrementos revisáveis:
 
 Cada incremento deverá incluir justificativa técnica, teste e evidência de
 avaliação antes de avançar.
+
+As buscas e avaliações estão documentadas em
+[`docs/structured-search.md`](docs/structured-search.md),
+[`docs/baseline-evaluation.md`](docs/baseline-evaluation.md) e
+[`docs/semantic-search.md`](docs/semantic-search.md).
 
 ## Estrutura
 

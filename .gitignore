@@ -29,3 +29,8 @@ models/*
 artifacts/*
 !artifacts/.gitkeep
 
+.hf_home/
+data/embeddings/
+*.npy
+*.npz
+
