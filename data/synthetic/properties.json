@@ -1,0 +1,963 @@
+[
+  {
+    "id": "IMOB-001",
+    "purpose": "aluguel",
+    "property_type": "casa",
+    "city": "Franca",
+    "neighborhood": "Jardim Aurora",
+    "price": 1600,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "parking_spaces": 0,
+    "area_m2": 85,
+    "pets_allowed": false,
+    "furnished": true,
+    "features": [
+      "quintal",
+      "área verde"
+    ],
+    "description": "Casa térrea arejada, com quintal gramado e ambientes bem distribuídos.",
+    "available": true
+  },
+  {
+    "id": "IMOB-002",
+    "purpose": "aluguel",
+    "property_type": "apartamento",
+    "city": "Campinas",
+    "neighborhood": "Parque Horizonte",
+    "price": 1250,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "parking_spaces": 0,
+    "area_m2": 48,
+    "pets_allowed": true,
+    "furnished": true,
+    "features": [
+      "sacada",
+      "espaço de trabalho"
+    ],
+    "description": "Apartamento compacto com sacada, vista aberta e espaço de trabalho junto à janela.",
+    "available": true
+  },
+  {
+    "id": "IMOB-003",
+    "purpose": "aluguel",
+    "property_type": "comercial",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Jardim das Águas",
+    "price": 2100,
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "parking_spaces": 0,
+    "area_m2": 55,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "salão aberto",
+      "recepção"
+    ],
+    "description": "Sala comercial aberta, adequada para escritório pequeno e atendimento agendado.",
+    "available": true
+  },
+  {
+    "id": "IMOB-004",
+    "purpose": "aluguel",
+    "property_type": "terreno",
+    "city": "São Paulo",
+    "neighborhood": "Vila das Flores",
+    "price": 900,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 180,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "terreno plano",
+      "vegetação baixa"
+    ],
+    "description": "Terreno plano de cenário fictício, com vegetação baixa e formato regular.",
+    "available": false
+  },
+  {
+    "id": "IMOB-005",
+    "purpose": "venda",
+    "property_type": "casa",
+    "city": "Belo Horizonte",
+    "neighborhood": "Bosque Azul",
+    "price": 313000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "parking_spaces": 1,
+    "area_m2": 96,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "varanda",
+      "lavanderia coberta"
+    ],
+    "description": "Residência compacta próxima a áreas de convivência, com varanda ensolarada.",
+    "available": true
+  },
+  {
+    "id": "IMOB-006",
+    "purpose": "venda",
+    "property_type": "apartamento",
+    "city": "Curitiba",
+    "neighborhood": "Vila Serena",
+    "price": 253000,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "parking_spaces": 1,
+    "area_m2": 59,
+    "pets_allowed": true,
+    "furnished": true,
+    "features": [
+      "móveis planejados",
+      "portaria"
+    ],
+    "description": "Unidade bem iluminada, mobiliada e com ambientes integrados para rotina urbana.",
+    "available": true
+  },
+  {
+    "id": "IMOB-007",
+    "purpose": "venda",
+    "property_type": "comercial",
+    "city": "Franca",
+    "neighborhood": "Centro",
+    "price": 368000,
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "parking_spaces": 1,
+    "area_m2": 66,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "recepção",
+      "salas privativas"
+    ],
+    "description": "Conjunto profissional com recepção, duas salas e iluminação natural.",
+    "available": true
+  },
+  {
+    "id": "IMOB-008",
+    "purpose": "venda",
+    "property_type": "terreno",
+    "city": "Campinas",
+    "neighborhood": "Alto do Sol",
+    "price": 173000,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 218,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "formato regular",
+      "área verde"
+    ],
+    "description": "Lote amplo em região genérica, adequado para estudo de projeto residencial.",
+    "available": true
+  },
+  {
+    "id": "IMOB-009",
+    "purpose": "aluguel",
+    "property_type": "casa",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Jardim Aurora",
+    "price": 2150,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "parking_spaces": 2,
+    "area_m2": 107,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "escritório",
+      "quintal"
+    ],
+    "description": "Sobrado de cenário fictício com escritório silencioso e espaço para animais.",
+    "available": false
+  },
+  {
+    "id": "IMOB-010",
+    "purpose": "aluguel",
+    "property_type": "apartamento",
+    "city": "São Paulo",
+    "neighborhood": "Parque Horizonte",
+    "price": 1800,
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "parking_spaces": 2,
+    "area_m2": 70,
+    "pets_allowed": false,
+    "furnished": true,
+    "features": [
+      "varanda",
+      "área verde"
+    ],
+    "description": "Apartamento familiar com três dormitórios, varanda e área comum arborizada.",
+    "available": true
+  },
+  {
+    "id": "IMOB-011",
+    "purpose": "aluguel",
+    "property_type": "comercial",
+    "city": "Belo Horizonte",
+    "neighborhood": "Jardim das Águas",
+    "price": 2650,
+    "bedrooms": 0,
+    "bathrooms": 3,
+    "parking_spaces": 2,
+    "area_m2": 77,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "acessibilidade",
+      "salão aberto"
+    ],
+    "description": "Espaço comercial térreo com salão livre e banheiro adaptável.",
+    "available": true
+  },
+  {
+    "id": "IMOB-012",
+    "purpose": "aluguel",
+    "property_type": "terreno",
+    "city": "Curitiba",
+    "neighborhood": "Vila das Flores",
+    "price": 1450,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 256,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "leve declive",
+      "sem construção"
+    ],
+    "description": "Área sem construção, com leve declive e espaço para jardim.",
+    "available": true
+  },
+  {
+    "id": "IMOB-013",
+    "purpose": "venda",
+    "property_type": "casa",
+    "city": "Franca",
+    "neighborhood": "Bosque Azul",
+    "price": 369000,
+    "bedrooms": 5,
+    "bathrooms": 1,
+    "parking_spaces": 3,
+    "area_m2": 118,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "cozinha integrada",
+      "jardim lateral"
+    ],
+    "description": "Casa ampla com cozinha integrada, jardim lateral e boa iluminação natural.",
+    "available": true
+  },
+  {
+    "id": "IMOB-014",
+    "purpose": "venda",
+    "property_type": "apartamento",
+    "city": "Campinas",
+    "neighborhood": "Vila Serena",
+    "price": 309000,
+    "bedrooms": 4,
+    "bathrooms": 1,
+    "parking_spaces": 3,
+    "area_m2": 81,
+    "pets_allowed": true,
+    "furnished": true,
+    "features": [
+      "cozinha planejada",
+      "elevador"
+    ],
+    "description": "Imóvel em andar intermediário, silencioso e com cozinha planejada.",
+    "available": true
+  },
+  {
+    "id": "IMOB-015",
+    "purpose": "venda",
+    "property_type": "comercial",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Centro",
+    "price": 424000,
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "parking_spaces": 3,
+    "area_m2": 88,
+    "pets_allowed": true,
+    "furnished": true,
+    "features": [
+      "divisórias removíveis",
+      "copa"
+    ],
+    "description": "Unidade para serviços, com divisórias removíveis e copa compacta.",
+    "available": false
+  },
+  {
+    "id": "IMOB-016",
+    "purpose": "venda",
+    "property_type": "terreno",
+    "city": "São Paulo",
+    "neighborhood": "Alto do Sol",
+    "price": 229000,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 294,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "terreno plano",
+      "boa iluminação"
+    ],
+    "description": "Terreno de esquina fictícia, plano e com boa incidência de luz solar.",
+    "available": true
+  },
+  {
+    "id": "IMOB-017",
+    "purpose": "aluguel",
+    "property_type": "casa",
+    "city": "Belo Horizonte",
+    "neighborhood": "Jardim Aurora",
+    "price": 2700,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "parking_spaces": 0,
+    "area_m2": 129,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "área gourmet",
+      "suíte"
+    ],
+    "description": "Imóvel residencial acolhedor, com área gourmet e quartos voltados ao jardim.",
+    "available": true
+  },
+  {
+    "id": "IMOB-018",
+    "purpose": "aluguel",
+    "property_type": "apartamento",
+    "city": "Curitiba",
+    "neighborhood": "Parque Horizonte",
+    "price": 2350,
+    "bedrooms": 1,
+    "bathrooms": 2,
+    "parking_spaces": 0,
+    "area_m2": 92,
+    "pets_allowed": true,
+    "furnished": true,
+    "features": [
+      "elevador",
+      "pet place"
+    ],
+    "description": "Apartamento acessível por elevador, com sala arejada e espaço para animais.",
+    "available": true
+  },
+  {
+    "id": "IMOB-019",
+    "purpose": "aluguel",
+    "property_type": "comercial",
+    "city": "Franca",
+    "neighborhood": "Jardim das Águas",
+    "price": 3200,
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "parking_spaces": 0,
+    "area_m2": 99,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "mobiliado",
+      "infraestrutura de rede"
+    ],
+    "description": "Sala corporativa silenciosa, mobiliada e pronta para equipes reduzidas.",
+    "available": true
+  },
+  {
+    "id": "IMOB-020",
+    "purpose": "aluguel",
+    "property_type": "terreno",
+    "city": "Campinas",
+    "neighborhood": "Vila das Flores",
+    "price": 2000,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 332,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "solo regular",
+      "sem construção"
+    ],
+    "description": "Lote compacto em bairro simulado, sem edificações e com solo regular.",
+    "available": true
+  },
+  {
+    "id": "IMOB-021",
+    "purpose": "venda",
+    "property_type": "casa",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Bosque Azul",
+    "price": 425000,
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "parking_spaces": 1,
+    "area_m2": 140,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "pátio",
+      "lavanderia coberta"
+    ],
+    "description": "Moradia funcional com lavanderia coberta e pátio adequado para famílias.",
+    "available": true
+  },
+  {
+    "id": "IMOB-022",
+    "purpose": "venda",
+    "property_type": "apartamento",
+    "city": "São Paulo",
+    "neighborhood": "Vila Serena",
+    "price": 365000,
+    "bedrooms": 2,
+    "bathrooms": 3,
+    "parking_spaces": 1,
+    "area_m2": 103,
+    "pets_allowed": false,
+    "furnished": true,
+    "features": [
+      "varanda gourmet",
+      "portaria"
+    ],
+    "description": "Unidade de planta flexível, varanda gourmet e boa entrada de luz pela manhã.",
+    "available": false
+  },
+  {
+    "id": "IMOB-023",
+    "purpose": "venda",
+    "property_type": "comercial",
+    "city": "Belo Horizonte",
+    "neighborhood": "Centro",
+    "price": 480000,
+    "bedrooms": 0,
+    "bathrooms": 3,
+    "parking_spaces": 1,
+    "area_m2": 110,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "estoque",
+      "salão amplo"
+    ],
+    "description": "Ponto comercial fictício com área ampla e espaço interno para estoque.",
+    "available": true
+  },
+  {
+    "id": "IMOB-024",
+    "purpose": "venda",
+    "property_type": "terreno",
+    "city": "Curitiba",
+    "neighborhood": "Alto do Sol",
+    "price": 285000,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 370,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "área ampla",
+      "paisagem aberta"
+    ],
+    "description": "Área extensa para projeto futuro, cercada por paisagem aberta.",
+    "available": true
+  },
+  {
+    "id": "IMOB-025",
+    "purpose": "aluguel",
+    "property_type": "casa",
+    "city": "Franca",
+    "neighborhood": "Jardim Aurora",
+    "price": 3250,
+    "bedrooms": 4,
+    "bathrooms": 1,
+    "parking_spaces": 2,
+    "area_m2": 151,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "móveis planejados",
+      "quintal"
+    ],
+    "description": "Casa mobiliada em estilo contemporâneo, com sala aberta para o quintal.",
+    "available": true
+  },
+  {
+    "id": "IMOB-026",
+    "purpose": "aluguel",
+    "property_type": "apartamento",
+    "city": "Campinas",
+    "neighborhood": "Parque Horizonte",
+    "price": 2900,
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "parking_spaces": 2,
+    "area_m2": 114,
+    "pets_allowed": true,
+    "furnished": true,
+    "features": [
+      "bicicletário",
+      "ventilação natural"
+    ],
+    "description": "Apartamento sem mobília, com dormitórios confortáveis e bicicletário coletivo.",
+    "available": true
+  },
+  {
+    "id": "IMOB-027",
+    "purpose": "aluguel",
+    "property_type": "comercial",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Jardim das Águas",
+    "price": 3750,
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "parking_spaces": 2,
+    "area_m2": 121,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "sala de reunião",
+      "infraestrutura de rede"
+    ],
+    "description": "Conjunto de escritórios com sala de reunião e infraestrutura de rede.",
+    "available": true
+  },
+  {
+    "id": "IMOB-028",
+    "purpose": "aluguel",
+    "property_type": "terreno",
+    "city": "São Paulo",
+    "neighborhood": "Vila das Flores",
+    "price": 2550,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 408,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "topografia suave",
+      "árvores"
+    ],
+    "description": "Terreno residencial fictício com topografia suave e árvores esparsas.",
+    "available": false
+  },
+  {
+    "id": "IMOB-029",
+    "purpose": "venda",
+    "property_type": "casa",
+    "city": "Belo Horizonte",
+    "neighborhood": "Bosque Azul",
+    "price": 481000,
+    "bedrooms": 5,
+    "bathrooms": 2,
+    "parking_spaces": 3,
+    "area_m2": 162,
+    "pets_allowed": true,
+    "furnished": true,
+    "features": [
+      "acessibilidade",
+      "jardim"
+    ],
+    "description": "Residência sem degraus, corredores largos e espaço externo de fácil cuidado.",
+    "available": true
+  },
+  {
+    "id": "IMOB-030",
+    "purpose": "venda",
+    "property_type": "apartamento",
+    "city": "Curitiba",
+    "neighborhood": "Vila Serena",
+    "price": 421000,
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "parking_spaces": 3,
+    "area_m2": 125,
+    "pets_allowed": true,
+    "furnished": true,
+    "features": [
+      "pé-direito alto",
+      "mobiliado"
+    ],
+    "description": "Loft residencial fictício com pé-direito alto e mobiliário essencial.",
+    "available": true
+  },
+  {
+    "id": "IMOB-031",
+    "purpose": "venda",
+    "property_type": "comercial",
+    "city": "Franca",
+    "neighborhood": "Centro",
+    "price": 536000,
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "parking_spaces": 3,
+    "area_m2": 132,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "vitrine",
+      "depósito"
+    ],
+    "description": "Loja compacta de cenário simulado, com vitrine e depósito nos fundos.",
+    "available": true
+  },
+  {
+    "id": "IMOB-032",
+    "purpose": "venda",
+    "property_type": "terreno",
+    "city": "Campinas",
+    "neighborhood": "Alto do Sol",
+    "price": 341000,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 446,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "formato retangular",
+      "sem construção"
+    ],
+    "description": "Lote sem construção, de formato retangular e fácil aproveitamento.",
+    "available": true
+  },
+  {
+    "id": "IMOB-033",
+    "purpose": "aluguel",
+    "property_type": "casa",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Jardim Aurora",
+    "price": 3800,
+    "bedrooms": 2,
+    "bathrooms": 3,
+    "parking_spaces": 0,
+    "area_m2": 173,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "depósito",
+      "varanda"
+    ],
+    "description": "Casa com ambientes independentes, varanda fresca e depósito para bicicletas.",
+    "available": true
+  },
+  {
+    "id": "IMOB-034",
+    "purpose": "aluguel",
+    "property_type": "apartamento",
+    "city": "São Paulo",
+    "neighborhood": "Parque Horizonte",
+    "price": 3450,
+    "bedrooms": 1,
+    "bathrooms": 3,
+    "parking_spaces": 0,
+    "area_m2": 136,
+    "pets_allowed": false,
+    "furnished": true,
+    "features": [
+      "sacada",
+      "portaria"
+    ],
+    "description": "Unidade compacta perto de serviços genéricos, com sacada e portaria.",
+    "available": true
+  },
+  {
+    "id": "IMOB-035",
+    "purpose": "aluguel",
+    "property_type": "comercial",
+    "city": "Belo Horizonte",
+    "neighborhood": "Jardim das Águas",
+    "price": 4300,
+    "bedrooms": 0,
+    "bathrooms": 3,
+    "parking_spaces": 0,
+    "area_m2": 143,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "elevador",
+      "planta flexível"
+    ],
+    "description": "Espaço profissional flexível, ventilado e com acesso por elevador.",
+    "available": false
+  },
+  {
+    "id": "IMOB-036",
+    "purpose": "aluguel",
+    "property_type": "terreno",
+    "city": "Curitiba",
+    "neighborhood": "Vila das Flores",
+    "price": 3100,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 484,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "área ampla",
+      "terreno plano"
+    ],
+    "description": "Área ampla em zona simulada de expansão, com superfície predominantemente plana.",
+    "available": true
+  },
+  {
+    "id": "IMOB-037",
+    "purpose": "venda",
+    "property_type": "casa",
+    "city": "Franca",
+    "neighborhood": "Bosque Azul",
+    "price": 537000,
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "parking_spaces": 1,
+    "area_m2": 184,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "terraço",
+      "suíte"
+    ],
+    "description": "Sobrado com suíte reservada, terraço e área social para receber visitas.",
+    "available": true
+  },
+  {
+    "id": "IMOB-038",
+    "purpose": "venda",
+    "property_type": "apartamento",
+    "city": "Campinas",
+    "neighborhood": "Vila Serena",
+    "price": 477000,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "parking_spaces": 1,
+    "area_m2": 147,
+    "pets_allowed": true,
+    "furnished": true,
+    "features": [
+      "suíte",
+      "despensa"
+    ],
+    "description": "Apartamento espaçoso, com suíte, despensa e duas vagas de garagem.",
+    "available": true
+  },
+  {
+    "id": "IMOB-039",
+    "purpose": "venda",
+    "property_type": "comercial",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Centro",
+    "price": 592000,
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "parking_spaces": 1,
+    "area_m2": 154,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "recepção",
+      "vagas exclusivas"
+    ],
+    "description": "Sala comercial com recepção integrada e duas vagas de uso exclusivo.",
+    "available": true
+  },
+  {
+    "id": "IMOB-040",
+    "purpose": "venda",
+    "property_type": "terreno",
+    "city": "São Paulo",
+    "neighborhood": "Alto do Sol",
+    "price": 397000,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 522,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "lote compacto",
+      "sem benfeitorias"
+    ],
+    "description": "Terreno compacto para estudo construtivo, sem benfeitorias existentes.",
+    "available": true
+  },
+  {
+    "id": "IMOB-041",
+    "purpose": "aluguel",
+    "property_type": "casa",
+    "city": "Belo Horizonte",
+    "neighborhood": "Jardim Aurora",
+    "price": 4350,
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "parking_spaces": 2,
+    "area_m2": 195,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "jardim",
+      "boa iluminação"
+    ],
+    "description": "Moradia econômica com cômodos iluminados e pequeno jardim nos fundos.",
+    "available": false
+  },
+  {
+    "id": "IMOB-042",
+    "purpose": "aluguel",
+    "property_type": "apartamento",
+    "city": "Curitiba",
+    "neighborhood": "Parque Horizonte",
+    "price": 4000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "parking_spaces": 2,
+    "area_m2": 158,
+    "pets_allowed": true,
+    "furnished": true,
+    "features": [
+      "área de estudos",
+      "ventilação cruzada"
+    ],
+    "description": "Imóvel de planta tradicional, ventilação cruzada e área de estudos.",
+    "available": true
+  },
+  {
+    "id": "IMOB-043",
+    "purpose": "aluguel",
+    "property_type": "comercial",
+    "city": "Franca",
+    "neighborhood": "Jardim das Águas",
+    "price": 4850,
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "parking_spaces": 2,
+    "area_m2": 165,
+    "pets_allowed": false,
+    "furnished": true,
+    "features": [
+      "sala privativa",
+      "copa"
+    ],
+    "description": "Unidade sem mobília, indicada para consultório ou atividade administrativa.",
+    "available": true
+  },
+  {
+    "id": "IMOB-044",
+    "purpose": "aluguel",
+    "property_type": "terreno",
+    "city": "Campinas",
+    "neighborhood": "Vila das Flores",
+    "price": 3650,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 560,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "leve aclive",
+      "área verde"
+    ],
+    "description": "Lote com leve aclive, vegetação rasteira e vista para área verde.",
+    "available": true
+  },
+  {
+    "id": "IMOB-045",
+    "purpose": "venda",
+    "property_type": "casa",
+    "city": "Ribeirão Preto",
+    "neighborhood": "Bosque Azul",
+    "price": 593000,
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "parking_spaces": 3,
+    "area_m2": 206,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "área de leitura",
+      "quintal"
+    ],
+    "description": "Casa espaçosa em bairro fictício tranquilo, com quintal e área de leitura.",
+    "available": true
+  },
+  {
+    "id": "IMOB-046",
+    "purpose": "venda",
+    "property_type": "apartamento",
+    "city": "São Paulo",
+    "neighborhood": "Vila Serena",
+    "price": 533000,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "parking_spaces": 3,
+    "area_m2": 169,
+    "pets_allowed": false,
+    "furnished": true,
+    "features": [
+      "móveis planejados",
+      "área verde"
+    ],
+    "description": "Apartamento acolhedor com móveis planejados e varanda voltada para área verde.",
+    "available": false
+  },
+  {
+    "id": "IMOB-047",
+    "purpose": "venda",
+    "property_type": "comercial",
+    "city": "Belo Horizonte",
+    "neighborhood": "Centro",
+    "price": 648000,
+    "bedrooms": 0,
+    "bathrooms": 3,
+    "parking_spaces": 3,
+    "area_m2": 176,
+    "pets_allowed": true,
+    "furnished": false,
+    "features": [
+      "áreas modulares",
+      "copa"
+    ],
+    "description": "Andar comercial amplo, com áreas modulares e copa para uso da equipe.",
+    "available": true
+  },
+  {
+    "id": "IMOB-048",
+    "purpose": "venda",
+    "property_type": "terreno",
+    "city": "Curitiba",
+    "neighborhood": "Alto do Sol",
+    "price": 453000,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "parking_spaces": 0,
+    "area_m2": 598,
+    "pets_allowed": false,
+    "furnished": false,
+    "features": [
+      "grandes dimensões",
+      "sem construção"
+    ],
+    "description": "Terreno de grandes dimensões em contexto fictício, livre de construções.",
+    "available": true
+  }
+]
+
