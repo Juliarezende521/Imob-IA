@@ -23,7 +23,8 @@ avaliação antes de avançar.
 As buscas e avaliações estão documentadas em
 [`docs/structured-search.md`](docs/structured-search.md),
 [`docs/baseline-evaluation.md`](docs/baseline-evaluation.md) e
-[`docs/semantic-search.md`](docs/semantic-search.md).
+[`docs/semantic-search.md`](docs/semantic-search.md). A fusão dos rankings está
+em [`docs/hybrid-search.md`](docs/hybrid-search.md).
 
 ## Estrutura
 

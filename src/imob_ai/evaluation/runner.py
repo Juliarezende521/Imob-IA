@@ -259,7 +259,9 @@ def main() -> None:
     parser.add_argument("--queries", type=Path, default=DEFAULT_QUERIES_PATH)
     parser.add_argument("--output", type=Path)
     parser.add_argument(
-        "--engine", choices=["lexical", "semantic", "compare"], default="lexical"
+        "--engine",
+        choices=["lexical", "semantic", "hybrid", "compare"],
+        default="lexical",
     )
     args = parser.parse_args()
 
@@ -271,7 +273,6 @@ def main() -> None:
     else:
         from imob_ai.semantic.config import SEMANTIC_THRESHOLD
         from imob_ai.semantic.encoder import SentenceTransformerEncoder
-        from imob_ai.semantic.report import render_comparison
         from imob_ai.semantic.service import SemanticSearchService
 
         service = SemanticSearchService(SentenceTransformerEncoder())
@@ -289,7 +290,32 @@ def main() -> None:
                 semantic_report, title="Avaliação da busca semântica"
             )
         else:
-            markdown = render_comparison(lexical_report, semantic_report)
+            from imob_ai.hybrid.config import HYBRID_LEXICAL_WEIGHT
+            from imob_ai.hybrid.report import render_hybrid_comparison
+            from imob_ai.hybrid.service import HybridSearchService
+
+            hybrid_service = HybridSearchService(service)
+
+            def hybrid_retriever(
+                items: Sequence[Property], case: EvaluationCase
+            ) -> list[str]:
+                query = case.filters.model_copy(
+                    update={"text": case.query, "limit": None}
+                )
+                result = hybrid_service.search(
+                    items, query, lexical_weight=HYBRID_LEXICAL_WEIGHT
+                )
+                return [match.property.id for match in result.items]
+
+            hybrid_report = evaluate_cases(catalog, cases, hybrid_retriever)
+            if args.engine == "hybrid":
+                markdown = render_markdown(
+                    hybrid_report, title="Avaliação da busca híbrida"
+                )
+            else:
+                markdown = render_hybrid_comparison(
+                    lexical_report, semantic_report, hybrid_report
+                )
     if args.output:
         args.output.write_text(markdown, encoding="utf-8")
     else:
