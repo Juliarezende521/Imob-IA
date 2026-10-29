@@ -4,8 +4,8 @@ Projeto de **engenharia de IA** aplicado a um problema imobiliário sintético.
 A prioridade é construir uma solução tecnicamente sólida, com Machine Learning,
 avaliação reproduzível, busca semântica e RAG com fontes.
 
-> Status: catálogo sintético, baseline lexical e busca semântica local com
-> avaliação reproduzível. Ainda não há modelo treinado pelo projeto ou API.
+> Status: recuperação lexical, semântica e híbrida, mais um baseline local de
+> classificação de intenções com dados sintéticos. Ainda não há API.
 
 ## Objetivo técnico
 
@@ -25,6 +25,8 @@ As buscas e avaliações estão documentadas em
 [`docs/baseline-evaluation.md`](docs/baseline-evaluation.md) e
 [`docs/semantic-search.md`](docs/semantic-search.md). A fusão dos rankings está
 em [`docs/hybrid-search.md`](docs/hybrid-search.md).
+O classificador está descrito em
+[`docs/intent-classification.md`](docs/intent-classification.md).
 
 ## Estrutura
 
