@@ -1,0 +1,1648 @@
+{
+  "artifact_sha256": "ad34c2e8e3302980f78b030b955258277f264b35ddca58561baf18deacedb030",
+  "baseline": {
+    "correct": 50,
+    "errors": [
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "INTENT-0042",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "busca_imovel__search_open_ended",
+        "text": "Quero conhecer as opções da imobiliária"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "INTENT-0046",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "busca_imovel__search_open_ended",
+        "text": "ME MOSTRA O QUE ESTÁ DISPONÍVEL"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "INTENT-0093",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "agendar_visita__visit_confirm",
+        "text": "Preciso saber se o agendamento continua válido"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "INTENT-0143",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "duvida_imovel__question_availability",
+        "text": "Não estou buscando outras opções, só quero confirmar esta"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "INTENT-0188",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "documentacao_locacao__docs_keys_requirements",
+        "text": "q falta pra liberar as chaves?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "INTENT-0191",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "documentacao_locacao__docs_keys_requirements",
+        "text": "Não estou marcando visita; quero entender a liberação documental"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "INTENT-0284",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "manutencao_imovel__maintenance_urgent",
+        "text": "manutencao urgente por favor"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "INTENT-0287",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "manutencao_imovel__maintenance_urgent",
+        "text": "Quero falar com alguém porque o vazamento está aumentando"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "INTENT-0288",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "manutencao_imovel__maintenance_urgent",
+        "text": "A prioridade é resolver o defeito, mesmo que um atendente retorne"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "ATENDIMENTO_HUMANO",
+        "id": "INTENT-0335",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "atendimento_humano__human_cancel_bot",
+        "text": "Não quero cancelar visita; quero apenas sair do atendimento automático"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "INTENT-0377",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "fora_de_escopo__outside_entertainment",
+        "text": "Me indique um filme"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "INTENT-0379",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "fora_de_escopo__outside_entertainment",
+        "text": "Quero ouvir uma música nova"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "INTENT-0381",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "fora_de_escopo__outside_entertainment",
+        "text": "Preciso de uma sugestão de livro"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "INTENT-0383",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "fora_de_escopo__outside_entertainment",
+        "text": "Não quero falar de locação, só escolher algo para assistir"
+      }
+    ],
+    "errors_count": 14,
+    "metrics": {
+      "accuracy": 0.78125,
+      "confusion_matrix": [
+        [
+          6,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          7,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          6,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          7,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          4
+        ]
+      ],
+      "f1_macro": 0.786016761016761,
+      "f1_weighted": 0.786016761016761,
+      "per_class": {
+        "AGENDAR_VISITA": {
+          "f1": 0.7777777777777778,
+          "precision": 0.7,
+          "recall": 0.875,
+          "support": 8.0
+        },
+        "ATENDIMENTO_HUMANO": {
+          "f1": 0.6363636363636364,
+          "precision": 0.5,
+          "recall": 0.875,
+          "support": 8.0
+        },
+        "BUSCA_IMOVEL": {
+          "f1": 0.8,
+          "precision": 0.8571428571428571,
+          "recall": 0.75,
+          "support": 8.0
+        },
+        "DOCUMENTACAO_LOCACAO": {
+          "f1": 0.8,
+          "precision": 0.8571428571428571,
+          "recall": 0.75,
+          "support": 8.0
+        },
+        "DUVIDA_IMOVEL": {
+          "f1": 0.9333333333333333,
+          "precision": 1.0,
+          "recall": 0.875,
+          "support": 8.0
+        },
+        "FINANCEIRO_LOCACAO": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 8.0
+        },
+        "FORA_DE_ESCOPO": {
+          "f1": 0.5714285714285714,
+          "precision": 0.6666666666666666,
+          "recall": 0.5,
+          "support": 8.0
+        },
+        "MANUTENCAO_IMOVEL": {
+          "f1": 0.7692307692307693,
+          "precision": 1.0,
+          "recall": 0.625,
+          "support": 8.0
+        }
+      },
+      "precision_macro": 0.8226190476190476,
+      "recall_macro": 0.78125
+    }
+  },
+  "frozen_config_sha256": "c484c07dcb34c8ff31e15404b19fe004032e54c4869bc5d6b34feec4a043cdf1",
+  "paired": {
+    "baseline_only_correct": 31,
+    "both_correct": 19,
+    "both_wrong": 11,
+    "transformer_only_correct": 3
+  },
+  "score_note": "Softmax são scores estimados, não certeza calibrada.",
+  "status": "preliminary_observed_test",
+  "transformer": {
+    "correct": 22,
+    "errors": [
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "INTENT-0041",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "busca_imovel__search_open_ended",
+        "text": "Vocês têm imóveis disponíveis?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "INTENT-0042",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "busca_imovel__search_open_ended",
+        "text": "Quero conhecer as opções da imobiliária"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "INTENT-0043",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "busca_imovel__search_open_ended",
+        "text": "Estou procurando um lugar novo"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "INTENT-0044",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "busca_imovel__search_open_ended",
+        "text": "tem algo legal pra morar?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "INTENT-0045",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "busca_imovel__search_open_ended",
+        "text": "Preciso encontrar um imóvel"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "INTENT-0048",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "busca_imovel__search_open_ended",
+        "text": "Gostaria de iniciar uma busca por uma nova moradia"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "AGENDAR_VISITA",
+        "id": "INTENT-0089",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "agendar_visita__visit_confirm",
+        "text": "Minha visita está confirmada?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "INTENT-0092",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "agendar_visita__visit_confirm",
+        "text": "confirma minha ida hj?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "INTENT-0094",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "agendar_visita__visit_confirm",
+        "text": "A VISITA DE HOJE CONTINUA MARCADA?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "AGENDAR_VISITA",
+        "id": "INTENT-0096",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "agendar_visita__visit_confirm",
+        "text": "Gostaria de verificar a confirmação da minha visita"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "INTENT-0141",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "duvida_imovel__question_availability",
+        "text": "Quero saber se a opção apresentada segue no catálogo"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "INTENT-0142",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "duvida_imovel__question_availability",
+        "text": "AINDA POSSO ESCOLHER ESSE IMÓVEL?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "INTENT-0143",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "duvida_imovel__question_availability",
+        "text": "Não estou buscando outras opções, só quero confirmar esta"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "INTENT-0185",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "documentacao_locacao__docs_keys_requirements",
+        "text": "O que preciso apresentar para retirar as chaves?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "INTENT-0187",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "documentacao_locacao__docs_keys_requirements",
+        "text": "A documentação já permite pegar as chaves?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "INTENT-0188",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "documentacao_locacao__docs_keys_requirements",
+        "text": "q falta pra liberar as chaves?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "INTENT-0189",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "documentacao_locacao__docs_keys_requirements",
+        "text": "Preciso saber quais comprovantes antecedem a retirada"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "INTENT-0191",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "documentacao_locacao__docs_keys_requirements",
+        "text": "Não estou marcando visita; quero entender a liberação documental"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "INTENT-0192",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "documentacao_locacao__docs_keys_requirements",
+        "text": "Depois da aprovação, quais exigências existem para receber as chaves?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "INTENT-0233",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "financeiro_locacao__finance_extra_charge",
+        "text": "O que é essa cobrança adicional?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "INTENT-0234",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "financeiro_locacao__finance_extra_charge",
+        "text": "Veio uma taxa diferente no boleto"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "INTENT-0235",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "financeiro_locacao__finance_extra_charge",
+        "text": "Não reconheço este valor cobrado"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "INTENT-0236",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "financeiro_locacao__finance_extra_charge",
+        "text": "q taxa eh essa no aluguel?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "INTENT-0237",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "financeiro_locacao__finance_extra_charge",
+        "text": "Preciso entender uma despesa lançada neste mês"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "INTENT-0238",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "financeiro_locacao__finance_extra_charge",
+        "text": "POR QUE EXISTE UMA COBRANÇA EXTRA?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "INTENT-0239",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "financeiro_locacao__finance_extra_charge",
+        "text": "O aluguel está certo, mas apareceu outro valor na fatura"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "INTENT-0240",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "financeiro_locacao__finance_extra_charge",
+        "text": "Gostaria de detalhes sobre uma taxa incluída na cobrança"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "INTENT-0282",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "manutencao_imovel__maintenance_urgent",
+        "text": "Há um problema que pode causar danos"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "INTENT-0284",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "manutencao_imovel__maintenance_urgent",
+        "text": "manutencao urgente por favor"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "INTENT-0285",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "manutencao_imovel__maintenance_urgent",
+        "text": "Não posso esperar para corrigir este problema"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "INTENT-0286",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "manutencao_imovel__maintenance_urgent",
+        "text": "PRECISO DE SUPORTE TÉCNICO NO IMÓVEL AGORA"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "INTENT-0287",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "manutencao_imovel__maintenance_urgent",
+        "text": "Quero falar com alguém porque o vazamento está aumentando"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "ATENDIMENTO_HUMANO",
+        "id": "INTENT-0329",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "atendimento_humano__human_cancel_bot",
+        "text": "Pare o atendimento automático"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "ATENDIMENTO_HUMANO",
+        "id": "INTENT-0330",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "atendimento_humano__human_cancel_bot",
+        "text": "Quero sair deste robô e falar com alguém"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "ATENDIMENTO_HUMANO",
+        "id": "INTENT-0332",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "atendimento_humano__human_cancel_bot",
+        "text": "cancela o bot e chama pessoa"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "ATENDIMENTO_HUMANO",
+        "id": "INTENT-0334",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "atendimento_humano__human_cancel_bot",
+        "text": "ENCERRE O ROBÔ E TRANSFIRA PARA UM ATENDENTE"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "ATENDIMENTO_HUMANO",
+        "id": "INTENT-0335",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "atendimento_humano__human_cancel_bot",
+        "text": "Não quero cancelar visita; quero apenas sair do atendimento automático"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "INTENT-0377",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "fora_de_escopo__outside_entertainment",
+        "text": "Me indique um filme"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "INTENT-0379",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "fora_de_escopo__outside_entertainment",
+        "text": "Quero ouvir uma música nova"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "INTENT-0381",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "fora_de_escopo__outside_entertainment",
+        "text": "Preciso de uma sugestão de livro"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "INTENT-0382",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "fora_de_escopo__outside_entertainment",
+        "text": "QUAL DESENHO VOCÊ RECOMENDA?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "INTENT-0383",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "fora_de_escopo__outside_entertainment",
+        "text": "Não quero falar de locação, só escolher algo para assistir"
+      }
+    ],
+    "errors_count": 42,
+    "metrics": {
+      "accuracy": 0.34375,
+      "confusion_matrix": [
+        [
+          2,
+          0,
+          1,
+          0,
+          0,
+          1,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          0,
+          3,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          2,
+          0,
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          1,
+          0,
+          3,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0,
+          0,
+          3,
+          3,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          4,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          4,
+          3
+        ]
+      ],
+      "f1_macro": 0.3336385471253892,
+      "f1_weighted": 0.3336385471253892,
+      "per_class": {
+        "AGENDAR_VISITA": {
+          "f1": 0.5333333333333333,
+          "precision": 0.5714285714285714,
+          "recall": 0.5,
+          "support": 8.0
+        },
+        "ATENDIMENTO_HUMANO": {
+          "f1": 0.2222222222222222,
+          "precision": 0.15789473684210525,
+          "recall": 0.375,
+          "support": 8.0
+        },
+        "BUSCA_IMOVEL": {
+          "f1": 0.36363636363636365,
+          "precision": 0.6666666666666666,
+          "recall": 0.25,
+          "support": 8.0
+        },
+        "DOCUMENTACAO_LOCACAO": {
+          "f1": 0.25,
+          "precision": 0.25,
+          "recall": 0.25,
+          "support": 8.0
+        },
+        "DUVIDA_IMOVEL": {
+          "f1": 0.5555555555555556,
+          "precision": 0.5,
+          "recall": 0.625,
+          "support": 8.0
+        },
+        "FINANCEIRO_LOCACAO": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 8.0
+        },
+        "FORA_DE_ESCOPO": {
+          "f1": 0.42857142857142855,
+          "precision": 0.5,
+          "recall": 0.375,
+          "support": 8.0
+        },
+        "MANUTENCAO_IMOVEL": {
+          "f1": 0.3157894736842105,
+          "precision": 0.2727272727272727,
+          "recall": 0.375,
+          "support": 8.0
+        }
+      },
+      "precision_macro": 0.364839655958077,
+      "recall_macro": 0.34375
+    }
+  },
+  "transformer_top_scores": [
+    [
+      [
+        "DUVIDA_IMOVEL",
+        0.28170859813690186
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.21876397728919983
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.21791966259479523
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.16630586981773376
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.15476037561893463
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.1547313630580902
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.2241879403591156
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.16056916117668152
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.158450186252594
+      ]
+    ],
+    [
+      [
+        "FORA_DE_ESCOPO",
+        0.23663108050823212
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.2030731439590454
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.1869426667690277
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.24763081967830658
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.19246980547904968
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.16360001266002655
+      ]
+    ],
+    [
+      [
+        "BUSCA_IMOVEL",
+        0.1775006502866745
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.17694883048534393
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.15932390093803406
+      ]
+    ],
+    [
+      [
+        "BUSCA_IMOVEL",
+        0.19798125326633453
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.17930161952972412
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.1346164494752884
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.23542660474777222
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.16010627150535583
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.15273165702819824
+      ]
+    ],
+    [
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.24734702706336975
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.24123573303222656
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.20275455713272095
+      ]
+    ],
+    [
+      [
+        "AGENDAR_VISITA",
+        0.299630343914032
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.1413116753101349
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.12873542308807373
+      ]
+    ],
+    [
+      [
+        "AGENDAR_VISITA",
+        0.18782588839530945
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.1805301159620285
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.13096292316913605
+      ]
+    ],
+    [
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.24270319938659668
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.22593368589878082
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.1514160931110382
+      ]
+    ],
+    [
+      [
+        "AGENDAR_VISITA",
+        0.17549850046634674
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.1683521270751953
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.16089090704917908
+      ]
+    ],
+    [
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.25527486205101013
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.2316235899925232
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.18497388064861298
+      ]
+    ],
+    [
+      [
+        "AGENDAR_VISITA",
+        0.2445579618215561
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.1608993411064148
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.13744181394577026
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.2178049087524414
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.20347630977630615
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.12337706983089447
+      ]
+    ],
+    [
+      [
+        "DUVIDA_IMOVEL",
+        0.37965670228004456
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.17399197816848755
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.17286889255046844
+      ]
+    ],
+    [
+      [
+        "DUVIDA_IMOVEL",
+        0.34796929359436035
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.17847047746181488
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.1536264270544052
+      ]
+    ],
+    [
+      [
+        "DUVIDA_IMOVEL",
+        0.42855602502822876
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.14519038796424866
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.1391431987285614
+      ]
+    ],
+    [
+      [
+        "DUVIDA_IMOVEL",
+        0.2745293080806732
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.2167542576789856
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.20066386461257935
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.16543805599212646
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.15055003762245178
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.147689551115036
+      ]
+    ],
+    [
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.24801099300384521
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.22814519703388214
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.2039458453655243
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.20764175057411194
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.15917721390724182
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.1275220513343811
+      ]
+    ],
+    [
+      [
+        "DUVIDA_IMOVEL",
+        0.23713746666908264
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.23339712619781494
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.2267170250415802
+      ]
+    ],
+    [
+      [
+        "FORA_DE_ESCOPO",
+        0.20175717771053314
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.1713036298751831
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.14431697130203247
+      ]
+    ],
+    [
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.27874431014060974
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.24635188281536102
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.18315140902996063
+      ]
+    ],
+    [
+      [
+        "DUVIDA_IMOVEL",
+        0.29291844367980957
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.24829424917697906
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.20257632434368134
+      ]
+    ],
+    [
+      [
+        "FORA_DE_ESCOPO",
+        0.23786646127700806
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.20157231390476227
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.14491260051727295
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.18884557485580444
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.14813674986362457
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.13898047804832458
+      ]
+    ],
+    [
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.2412475049495697
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.23857533931732178
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.18245314061641693
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.20546643435955048
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.18309436738491058
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.12410431355237961
+      ]
+    ],
+    [
+      [
+        "DUVIDA_IMOVEL",
+        0.31434929370880127
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.22220808267593384
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.1644943356513977
+      ]
+    ],
+    [
+      [
+        "DUVIDA_IMOVEL",
+        0.2615582346916199
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.230238139629364
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.21725216507911682
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.19618357717990875
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.167329803109169
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.14333099126815796
+      ]
+    ],
+    [
+      [
+        "AGENDAR_VISITA",
+        0.18974661827087402
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.1686563491821289
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.16517534852027893
+      ]
+    ],
+    [
+      [
+        "DUVIDA_IMOVEL",
+        0.21264588832855225
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.20148593187332153
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.19882681965827942
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.19746115803718567
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.17157697677612305
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.1450907289981842
+      ]
+    ],
+    [
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.23523679375648499
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.21949119865894318
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.20915426313877106
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.27745741605758667
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.14318573474884033
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.13270552456378937
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.2281569242477417
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.17497758567333221
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.15863680839538574
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.2915881872177124
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.14221857488155365
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.1337842494249344
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.21100473403930664
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.1709071546792984
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.1390039622783661
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.2678755223751068
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.17129391431808472
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.1349135935306549
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.16825823485851288
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.1674778014421463
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.1544269621372223
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.21937574446201324
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.16403979063034058
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.14351066946983337
+      ]
+    ],
+    [
+      [
+        "BUSCA_IMOVEL",
+        0.19735087454319
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.1867060661315918
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.15348680317401886
+      ]
+    ],
+    [
+      [
+        "AGENDAR_VISITA",
+        0.20701837539672852
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.1864752322435379
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.1439632922410965
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.2014578878879547
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.1766621470451355
+      ],
+      [
+        "FINANCEIRO_LOCACAO",
+        0.12900838255882263
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.21650846302509308
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.1539250761270523
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.15205931663513184
+      ]
+    ],
+    [
+      [
+        "AGENDAR_VISITA",
+        0.19947949051856995
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.19467680156230927
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.16980336606502533
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.2029356062412262
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.1802615225315094
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.14939835667610168
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.25206127762794495
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.17909088730812073
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.1601923108100891
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.23402342200279236
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.15108583867549896
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.13276024162769318
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.18378324806690216
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.1795308142900467
+      ],
+      [
+        "ATENDIMENTO_HUMANO",
+        0.15899163484573364
+      ]
+    ],
+    [
+      [
+        "MANUTENCAO_IMOVEL",
+        0.18122605979442596
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.161932110786438
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.16064801812171936
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.27247241139411926
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.14632205665111542
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.14383408427238464
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.20983001589775085
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.13938473165035248
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.13604776561260223
+      ]
+    ],
+    [
+      [
+        "FORA_DE_ESCOPO",
+        0.31564396619796753
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.20664505660533905
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.17678523063659668
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.23157991468906403
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.15064391493797302
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.13021144270896912
+      ]
+    ],
+    [
+      [
+        "FORA_DE_ESCOPO",
+        0.27291905879974365
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.17785608768463135
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.1697218269109726
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.19128985702991486
+      ],
+      [
+        "MANUTENCAO_IMOVEL",
+        0.17688152194023132
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.1610819697380066
+      ]
+    ],
+    [
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.24861548840999603
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.2284083515405655
+      ],
+      [
+        "FORA_DE_ESCOPO",
+        0.21194852888584137
+      ]
+    ],
+    [
+      [
+        "ATENDIMENTO_HUMANO",
+        0.2404395192861557
+      ],
+      [
+        "AGENDAR_VISITA",
+        0.18350917100906372
+      ],
+      [
+        "BUSCA_IMOVEL",
+        0.12231110036373138
+      ]
+    ],
+    [
+      [
+        "FORA_DE_ESCOPO",
+        0.26008081436157227
+      ],
+      [
+        "DOCUMENTACAO_LOCACAO",
+        0.18467698991298676
+      ],
+      [
+        "DUVIDA_IMOVEL",
+        0.1635642945766449
+      ]
+    ]
+  ]
+}

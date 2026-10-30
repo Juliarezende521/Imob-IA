@@ -1,0 +1,1658 @@
+{
+  "artifact_sha256": "ad34c2e8e3302980f78b030b955258277f264b35ddca58561baf18deacedb030",
+  "baseline": {
+    "correct": 131,
+    "errors": [
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0001",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_accessibility",
+        "text": "Preciso de um imóvel acessível para cadeira de rodas"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0009",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_commercial_activity",
+        "text": "Preciso de um espaço para abrir meu negócio"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0010",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_commercial_activity",
+        "text": "Vocês têm salas adequadas para atendimento ao público?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0013",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_temporary_move",
+        "text": "Vou morar por alguns meses e preciso de uma opção"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0015",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_temporary_move",
+        "text": "preciso achar um canto enquanto minha casa fica pronta"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0020",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_shared_home",
+        "text": "Não é para uma família única; preciso de alternativas adequadas à divisão"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0022",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__busca_imovel__search_move_deadline",
+        "text": "Minha mudança tem prazo curto; quais alternativas existem?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0023",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__busca_imovel__search_move_deadline",
+        "text": "ainda nao escolhi nada e tenho poucos dias"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0027",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__agendar_visita__tour_remote",
+        "text": "fazem tour online desse lugar?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0028",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "challenge__agendar_visita__tour_remote",
+        "text": "Estou longe e gostaria de ver os ambientes remotamente"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0032",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__agendar_visita__tour_companion",
+        "text": "Antes de fechar, preciso comparecer junto com quem vai morar comigo"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0035",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__agendar_visita__tour_access",
+        "text": "quem libera minha entrada quando eu chegar?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0038",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "challenge__agendar_visita__tour_multiple",
+        "text": "Quero organizar um roteiro para ver os imóveis selecionados"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0040",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "challenge__agendar_visita__tour_multiple",
+        "text": "Minha decisão é comparar pessoalmente três unidades em sequência"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0042",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__agendar_visita__tour_duration",
+        "text": "Preciso ajustar meu compromisso conforme a duração da apresentação"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0043",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__agendar_visita__tour_duration",
+        "text": "essa ida costuma levar qnt tempo?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0047",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__agendar_visita__tour_delay",
+        "text": "to indo mas chego uns minutos dps"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0056",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__duvida_imovel__question_noise",
+        "text": "Gostei da opção, mas preciso entender o nível de som nos ambientes"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0059",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__duvida_imovel__question_internet",
+        "text": "da pra instalar internet rapida ai?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0062",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__duvida_imovel__question_utilities",
+        "text": "Como funciona o gás na casa anunciada?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0064",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "challenge__duvida_imovel__question_utilities",
+        "text": "Não procuro outra opção; quero entender as utilidades deste imóvel"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0065",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__duvida_imovel__question_renovation",
+        "text": "A unidade passou por alguma reforma recente?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0068",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__duvida_imovel__question_renovation",
+        "text": "A pintura parece nova, mas quero saber o histórico de melhorias"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0069",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__duvida_imovel__question_building_rules",
+        "text": "Há restrição de horário para mudança nesse prédio?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0072",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__duvida_imovel__question_building_rules",
+        "text": "Já escolhi a opção; só preciso entender as normas do edifício"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0075",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__documentacao_locacao__docs_self_employed",
+        "text": "nao tenho holerite, qual papel envio?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0080",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__documentacao_locacao__docs_students",
+        "text": "Quero alugar enquanto estudo e preciso conhecer os requisitos"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0082",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "challenge__documentacao_locacao__docs_corporate_lease",
+        "text": "O contrato pode ficar em nome de uma empresa?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0091",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__documentacao_locacao__docs_data_correction",
+        "text": "mandei o arquivo errado, da pra corrigir?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0096",
+        "predicted": "FINANCEIRO_LOCACAO",
+        "scenario_family": "challenge__documentacao_locacao__docs_renewal",
+        "text": "Não é uma nova cobrança; preciso saber a documentação para renovar"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0100",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_split_payment",
+        "text": "Preciso negociar a forma de pagamento, não os documentos"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0103",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_payment_channel",
+        "text": "aceitam pix pra quitar a mensalidade?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0106",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_receipt",
+        "text": "Como obtenho o comprovante de quitação?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0109",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_deposit_return",
+        "text": "Quando o depósito de garantia será devolvido?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0110",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_deposit_return",
+        "text": "Como funciona o reembolso da caução ao sair?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0111",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__financeiro_locacao__finance_deposit_return",
+        "text": "quero saber da devolucao do deposito"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0112",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_deposit_return",
+        "text": "Encerrei a locação e minha dúvida principal é o valor retido como garantia"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0113",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__financeiro_locacao__finance_termination_fee",
+        "text": "Qual seria a multa se eu encerrar antes do prazo?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0114",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_termination_fee",
+        "text": "Preciso calcular o custo financeiro de sair antecipadamente"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0115",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__financeiro_locacao__finance_termination_fee",
+        "text": "se eu sair antes, quanto pago?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0120",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__financeiro_locacao__finance_credit_balance",
+        "text": "Não quero estorno imediato; preciso saber como o excedente entra na próxima cobrança"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "CHALLENGE-0123",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__manutencao_imovel__maintenance_pests",
+        "text": "tem bichinhos entrando pela cozinha"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "CHALLENGE-0134",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__manutencao_imovel__maintenance_elevator",
+        "text": "Como aviso que o equipamento de acesso aos andares falhou?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "CHALLENGE-0135",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__manutencao_imovel__maintenance_elevator",
+        "text": "elevador fora de servico de novo"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "ATENDIMENTO_HUMANO",
+        "id": "CHALLENGE-0164",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__atendimento_humano__human_privacy_concern",
+        "text": "A questão não é documentação da locação; quero uma pessoa para tratar privacidade"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0169",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_study",
+        "text": "Pode me ajudar a estudar para uma prova?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0170",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_study",
+        "text": "Explique uma matéria da escola"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0171",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_study",
+        "text": "faz um resumo pra minha aula?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0174",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__fora_de_escopo__outside_health",
+        "text": "Quero dicas gerais para cuidar da saúde"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0175",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__fora_de_escopo__outside_health",
+        "text": "como melhoro minha alimentacao?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0176",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_health",
+        "text": "Preciso montar uma rotina de bem-estar"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0178",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_shopping",
+        "text": "Ajude a escolher um presente"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0179",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_shopping",
+        "text": "quero comparar dois celulares"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0180",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_shopping",
+        "text": "Preciso de uma recomendação de produto, não de imóvel"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0181",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_trip_planning",
+        "text": "Monte um roteiro para minhas férias"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0182",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_trip_planning",
+        "text": "Quais lugares devo conhecer em uma viagem curta?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0184",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_trip_planning",
+        "text": "Quero decidir passeios e transporte para um destino turístico"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0187",
+        "predicted": "FINANCEIRO_LOCACAO",
+        "scenario_family": "challenge__fora_de_escopo__outside_personal_budget",
+        "text": "preciso controlar minhas compras do mes"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0188",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_personal_budget",
+        "text": "Não é sobre aluguel; quero uma planilha para despesas pessoais"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0191",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_device_repair",
+        "text": "meu fone parou de funcionar"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0192",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_device_repair",
+        "text": "É um defeito no meu aparelho pessoal, não no imóvel"
+      }
+    ],
+    "errors_count": 61,
+    "metrics": {
+      "accuracy": 0.6822916666666666,
+      "confusion_matrix": [
+        [
+          16,
+          0,
+          1,
+          1,
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          15,
+          2,
+          1,
+          0,
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          16,
+          2,
+          0,
+          2,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          0,
+          19,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          7,
+          13,
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          0,
+          1,
+          2,
+          0,
+          21,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          23,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          1,
+          1,
+          3,
+          8,
+          8
+        ]
+      ],
+      "f1_macro": 0.6729486901428939,
+      "f1_weighted": 0.6729486901428938,
+      "per_class": {
+        "AGENDAR_VISITA": {
+          "f1": 0.6976744186046512,
+          "precision": 0.7894736842105263,
+          "recall": 0.625,
+          "support": 24.0
+        },
+        "ATENDIMENTO_HUMANO": {
+          "f1": 0.7796610169491526,
+          "precision": 0.6571428571428571,
+          "recall": 0.9583333333333334,
+          "support": 24.0
+        },
+        "BUSCA_IMOVEL": {
+          "f1": 0.6808510638297872,
+          "precision": 0.6956521739130435,
+          "recall": 0.6666666666666666,
+          "support": 24.0
+        },
+        "DOCUMENTACAO_LOCACAO": {
+          "f1": 0.6551724137931034,
+          "precision": 0.5588235294117647,
+          "recall": 0.7916666666666666,
+          "support": 24.0
+        },
+        "DUVIDA_IMOVEL": {
+          "f1": 0.7111111111111111,
+          "precision": 0.7619047619047619,
+          "recall": 0.6666666666666666,
+          "support": 24.0
+        },
+        "FINANCEIRO_LOCACAO": {
+          "f1": 0.6666666666666666,
+          "precision": 0.8666666666666667,
+          "recall": 0.5416666666666666,
+          "support": 24.0
+        },
+        "FORA_DE_ESCOPO": {
+          "f1": 0.4,
+          "precision": 0.5,
+          "recall": 0.3333333333333333,
+          "support": 24.0
+        },
+        "MANUTENCAO_IMOVEL": {
+          "f1": 0.7924528301886793,
+          "precision": 0.7241379310344828,
+          "recall": 0.875,
+          "support": 24.0
+        }
+      },
+      "precision_macro": 0.6942252005355128,
+      "recall_macro": 0.6822916666666666
+    }
+  },
+  "challenge_sha256": "680b4e9496e1025a1e678dbacc5be17bb676124c33288d52fe2d2d3123a685b5",
+  "declaration": "Primeira e única avaliação do challenge; nenhuma configuração, hiperparâmetro, tokenizer, modelo ou dado será alterado após o resultado.",
+  "device": "cpu",
+  "f1_macro_difference": -0.28749619785900626,
+  "first_evaluation": true,
+  "frozen_config_sha256": "c484c07dcb34c8ff31e15404b19fe004032e54c4869bc5d6b34feec4a043cdf1",
+  "schema_version": "1",
+  "transformer": {
+    "correct": 84,
+    "errors": [
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0001",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_accessibility",
+        "text": "Preciso de um imóvel acessível para cadeira de rodas"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0002",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_accessibility",
+        "text": "Quais opções têm portas largas e entrada sem degraus?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0003",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_accessibility",
+        "text": "busco moradia adaptada pra mobilidade reduzida"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0004",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_accessibility",
+        "text": "Quero mudar de casa e acessibilidade é o requisito principal"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0005",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_land_build",
+        "text": "Estou procurando um terreno para construir"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0006",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_land_build",
+        "text": "Há lotes residenciais entre as opções?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0007",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_land_build",
+        "text": "quero um lugar vazio pra levantar minha casa"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0008",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_land_build",
+        "text": "Não busco imóvel pronto, minha ideia é começar uma construção"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0009",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_commercial_activity",
+        "text": "Preciso de um espaço para abrir meu negócio"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0010",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_commercial_activity",
+        "text": "Vocês têm salas adequadas para atendimento ao público?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0012",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_commercial_activity",
+        "text": "Quero comparar imóveis onde seja permitido trabalhar com clientes"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0013",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_temporary_move",
+        "text": "Vou morar por alguns meses e preciso de uma opção"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0014",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_temporary_move",
+        "text": "Tem imóvel para uma mudança temporária?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0015",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_temporary_move",
+        "text": "preciso achar um canto enquanto minha casa fica pronta"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0016",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_temporary_move",
+        "text": "A procura é por moradia, mas não será uma permanência longa"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0017",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_shared_home",
+        "text": "Eu e outras pessoas queremos dividir uma moradia"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0018",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_shared_home",
+        "text": "Busco um lugar com ambientes independentes para compartilhar"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0019",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_shared_home",
+        "text": "tem opcao boa pra morar em grupo?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0020",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__busca_imovel__search_shared_home",
+        "text": "Não é para uma família única; preciso de alternativas adequadas à divisão"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0021",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__busca_imovel__search_move_deadline",
+        "text": "Preciso encontrar onde morar antes do fim do mês"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0022",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__busca_imovel__search_move_deadline",
+        "text": "Minha mudança tem prazo curto; quais alternativas existem?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0023",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__busca_imovel__search_move_deadline",
+        "text": "ainda nao escolhi nada e tenho poucos dias"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "BUSCA_IMOVEL",
+        "id": "CHALLENGE-0024",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__busca_imovel__search_move_deadline",
+        "text": "Quero iniciar a procura, considerando que preciso entrar logo"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0025",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__agendar_visita__tour_remote",
+        "text": "Dá para conhecer o imóvel por chamada de vídeo?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0026",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__agendar_visita__tour_remote",
+        "text": "Quero reservar uma apresentação virtual"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0027",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__agendar_visita__tour_remote",
+        "text": "fazem tour online desse lugar?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0029",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__agendar_visita__tour_companion",
+        "text": "Posso levar outra pessoa para conhecer a casa?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0030",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__agendar_visita__tour_companion",
+        "text": "Quero combinar um horário em que meu acompanhante possa ir"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0033",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__agendar_visita__tour_access",
+        "text": "Como entro no prédio no horário que combinamos?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0034",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__agendar_visita__tour_access",
+        "text": "Preciso das orientações para acessar o imóvel na hora marcada"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0035",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__agendar_visita__tour_access",
+        "text": "quem libera minha entrada quando eu chegar?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0036",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__agendar_visita__tour_access",
+        "text": "Já combinei de ir; falta saber o procedimento de acesso"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0037",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__agendar_visita__tour_multiple",
+        "text": "Consigo conhecer duas opções no mesmo período?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0038",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__agendar_visita__tour_multiple",
+        "text": "Quero organizar um roteiro para ver os imóveis selecionados"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0039",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__agendar_visita__tour_multiple",
+        "text": "da pra passar em mais de um local no mesmo dia?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0040",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__agendar_visita__tour_multiple",
+        "text": "Minha decisão é comparar pessoalmente três unidades em sequência"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0041",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__agendar_visita__tour_duration",
+        "text": "Quanto tempo devo reservar para conhecer o espaço?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0042",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__agendar_visita__tour_duration",
+        "text": "Preciso ajustar meu compromisso conforme a duração da apresentação"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0043",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__agendar_visita__tour_duration",
+        "text": "essa ida costuma levar qnt tempo?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0045",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__agendar_visita__tour_delay",
+        "text": "Vou chegar depois do combinado, ainda consigo entrar?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "AGENDAR_VISITA",
+        "id": "CHALLENGE-0046",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__agendar_visita__tour_delay",
+        "text": "Meu deslocamento atrasou; mantenham o horário se possível"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0052",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__duvida_imovel__question_sunlight",
+        "text": "Quero confirmar a posição do sol na unidade anunciada"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0054",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__duvida_imovel__question_noise",
+        "text": "Há muito barulho ao redor dessa unidade?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0056",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__duvida_imovel__question_noise",
+        "text": "Gostei da opção, mas preciso entender o nível de som nos ambientes"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0059",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__duvida_imovel__question_internet",
+        "text": "da pra instalar internet rapida ai?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0064",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__duvida_imovel__question_utilities",
+        "text": "Não procuro outra opção; quero entender as utilidades deste imóvel"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0068",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "challenge__duvida_imovel__question_renovation",
+        "text": "A pintura parece nova, mas quero saber o histórico de melhorias"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0071",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__duvida_imovel__question_building_rules",
+        "text": "posso usar as areas comuns morando nessa unidade?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DUVIDA_IMOVEL",
+        "id": "CHALLENGE-0072",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__duvida_imovel__question_building_rules",
+        "text": "Já escolhi a opção; só preciso entender as normas do edifício"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0076",
+        "predicted": "FINANCEIRO_LOCACAO",
+        "scenario_family": "challenge__documentacao_locacao__docs_self_employed",
+        "text": "Minha renda varia e preciso saber como documentar o cadastro"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0077",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__documentacao_locacao__docs_students",
+        "text": "Estudante pode fazer o cadastro de locação?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0079",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__documentacao_locacao__docs_students",
+        "text": "sou estudante, oq preciso apresentar?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0080",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__documentacao_locacao__docs_students",
+        "text": "Quero alugar enquanto estudo e preciso conhecer os requisitos"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0082",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__documentacao_locacao__docs_corporate_lease",
+        "text": "O contrato pode ficar em nome de uma empresa?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0083",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__documentacao_locacao__docs_corporate_lease",
+        "text": "pra alugar como pessoa juridica, oq pedem?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0084",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__documentacao_locacao__docs_corporate_lease",
+        "text": "Preciso entender o cadastro quando o responsável pela locação é uma organização"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0087",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__documentacao_locacao__docs_co_tenants",
+        "text": "vamos alugar juntos, os dois fazem cadastro?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0088",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__documentacao_locacao__docs_co_tenants",
+        "text": "Não é fiador; quero registrar mais de um locatário"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0090",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__documentacao_locacao__docs_data_correction",
+        "text": "Preciso substituir um documento enviado com informação errada"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0092",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__documentacao_locacao__docs_data_correction",
+        "text": "A análise ainda não terminou e quero retificar o material apresentado"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0093",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__documentacao_locacao__docs_renewal",
+        "text": "Na renovação preciso apresentar tudo novamente?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "DOCUMENTACAO_LOCACAO",
+        "id": "CHALLENGE-0096",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__documentacao_locacao__docs_renewal",
+        "text": "Não é uma nova cobrança; preciso saber a documentação para renovar"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0097",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_split_payment",
+        "text": "Posso dividir o pagamento deste mês?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0098",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__financeiro_locacao__finance_split_payment",
+        "text": "Existe opção de pagar o aluguel em duas partes?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0099",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_split_payment",
+        "text": "da pra parcelar o valor que venceu?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0101",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__financeiro_locacao__finance_payment_channel",
+        "text": "Posso pagar meu aluguel por transferência?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0102",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__financeiro_locacao__finance_payment_channel",
+        "text": "Qual meio de pagamento está disponível este mês?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0103",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_payment_channel",
+        "text": "aceitam pix pra quitar a mensalidade?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0104",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__financeiro_locacao__finance_payment_channel",
+        "text": "Quero confirmar por onde devo realizar o pagamento"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0105",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__financeiro_locacao__finance_receipt",
+        "text": "Preciso do recibo do aluguel que paguei"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0106",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_receipt",
+        "text": "Como obtenho o comprovante de quitação?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0107",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__financeiro_locacao__finance_receipt",
+        "text": "onde baixo o recibo do pagamento?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0109",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_deposit_return",
+        "text": "Quando o depósito de garantia será devolvido?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0110",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_deposit_return",
+        "text": "Como funciona o reembolso da caução ao sair?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0111",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__financeiro_locacao__finance_deposit_return",
+        "text": "quero saber da devolucao do deposito"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0112",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__financeiro_locacao__finance_deposit_return",
+        "text": "Encerrei a locação e minha dúvida principal é o valor retido como garantia"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0113",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_termination_fee",
+        "text": "Qual seria a multa se eu encerrar antes do prazo?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0114",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__financeiro_locacao__finance_termination_fee",
+        "text": "Preciso calcular o custo financeiro de sair antecipadamente"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0115",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__financeiro_locacao__finance_termination_fee",
+        "text": "se eu sair antes, quanto pago?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0116",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__financeiro_locacao__finance_termination_fee",
+        "text": "Ainda não estou cancelando; quero entender a cobrança por término antecipado"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0117",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_credit_balance",
+        "text": "Paguei a mais; como o crédito será compensado?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0118",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__financeiro_locacao__finance_credit_balance",
+        "text": "Existe saldo positivo para descontar no próximo aluguel?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0119",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__financeiro_locacao__finance_credit_balance",
+        "text": "ficou um valor a meu favor, e agora?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FINANCEIRO_LOCACAO",
+        "id": "CHALLENGE-0120",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__financeiro_locacao__finance_credit_balance",
+        "text": "Não quero estorno imediato; preciso saber como o excedente entra na próxima cobrança"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "CHALLENGE-0122",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__manutencao_imovel__maintenance_pests",
+        "text": "Como solicito controle de pragas na casa?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "CHALLENGE-0126",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__manutencao_imovel__maintenance_intercom",
+        "text": "Preciso de assistência porque não ouço quem chama na portaria"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "CHALLENGE-0134",
+        "predicted": "DOCUMENTACAO_LOCACAO",
+        "scenario_family": "challenge__manutencao_imovel__maintenance_elevator",
+        "text": "Como aviso que o equipamento de acesso aos andares falhou?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "MANUTENCAO_IMOVEL",
+        "id": "CHALLENGE-0143",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__manutencao_imovel__maintenance_preventive_check",
+        "text": "parece ter algo errado no quadro, podem verificar?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "ATENDIMENTO_HUMANO",
+        "id": "CHALLENGE-0147",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__atendimento_humano__human_accessibility_support",
+        "text": "tem alguem que possa me atender de outro jeito?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "ATENDIMENTO_HUMANO",
+        "id": "CHALLENGE-0150",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__atendimento_humano__human_language_support",
+        "text": "Há alguém da equipe que possa oferecer suporte bilíngue?"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "ATENDIMENTO_HUMANO",
+        "id": "CHALLENGE-0159",
+        "predicted": "FORA_DE_ESCOPO",
+        "scenario_family": "challenge__atendimento_humano__human_callback",
+        "text": "alguem pode falar comigo depois?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0169",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_study",
+        "text": "Pode me ajudar a estudar para uma prova?"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0170",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_study",
+        "text": "Explique uma matéria da escola"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0172",
+        "predicted": "AGENDAR_VISITA",
+        "scenario_family": "challenge__fora_de_escopo__outside_study",
+        "text": "Quero organizar meus estudos desta semana"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0174",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_health",
+        "text": "Quero dicas gerais para cuidar da saúde"
+      },
+      {
+        "difficulty": "easy",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0176",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_health",
+        "text": "Preciso montar uma rotina de bem-estar"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0178",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_shopping",
+        "text": "Ajude a escolher um presente"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0179",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_shopping",
+        "text": "quero comparar dois celulares"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0180",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_shopping",
+        "text": "Preciso de uma recomendação de produto, não de imóvel"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0181",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_trip_planning",
+        "text": "Monte um roteiro para minhas férias"
+      },
+      {
+        "difficulty": "medium",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0184",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_trip_planning",
+        "text": "Quero decidir passeios e transporte para um destino turístico"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0185",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_personal_budget",
+        "text": "Quero organizar os gastos do supermercado"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0186",
+        "predicted": "DUVIDA_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_personal_budget",
+        "text": "Como divido meu orçamento entre lazer e alimentação?"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0187",
+        "predicted": "ATENDIMENTO_HUMANO",
+        "scenario_family": "challenge__fora_de_escopo__outside_personal_budget",
+        "text": "preciso controlar minhas compras do mes"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0188",
+        "predicted": "BUSCA_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_personal_budget",
+        "text": "Não é sobre aluguel; quero uma planilha para despesas pessoais"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0190",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_device_repair",
+        "text": "O notebook está travando e preciso de orientação"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0191",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_device_repair",
+        "text": "meu fone parou de funcionar"
+      },
+      {
+        "difficulty": "hard",
+        "expected": "FORA_DE_ESCOPO",
+        "id": "CHALLENGE-0192",
+        "predicted": "MANUTENCAO_IMOVEL",
+        "scenario_family": "challenge__fora_de_escopo__outside_device_repair",
+        "text": "É um defeito no meu aparelho pessoal, não no imóvel"
+      }
+    ],
+    "errors_count": 108,
+    "metrics": {
+      "accuracy": 0.4375,
+      "confusion_matrix": [
+        [
+          1,
+          3,
+          6,
+          0,
+          0,
+          2,
+          12,
+          0
+        ],
+        [
+          0,
+          6,
+          2,
+          0,
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          1,
+          1,
+          16,
+          2,
+          0,
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          0,
+          3,
+          11,
+          1,
+          0,
+          6,
+          3
+        ],
+        [
+          0,
+          1,
+          4,
+          9,
+          2,
+          3,
+          3,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          20,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          21,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          0,
+          4,
+          10,
+          7
+        ]
+      ],
+      "f1_macro": 0.38545249228388767,
+      "f1_weighted": 0.3854524922838876,
+      "per_class": {
+        "AGENDAR_VISITA": {
+          "f1": 0.32432432432432434,
+          "precision": 0.46153846153846156,
+          "recall": 0.25,
+          "support": 24.0
+        },
+        "ATENDIMENTO_HUMANO": {
+          "f1": 0.4883720930232558,
+          "precision": 0.3387096774193548,
+          "recall": 0.875,
+          "support": 24.0
+        },
+        "BUSCA_IMOVEL": {
+          "f1": 0.07407407407407407,
+          "precision": 0.3333333333333333,
+          "recall": 0.041666666666666664,
+          "support": 24.0
+        },
+        "DOCUMENTACAO_LOCACAO": {
+          "f1": 0.4583333333333333,
+          "precision": 0.4583333333333333,
+          "recall": 0.4583333333333333,
+          "support": 24.0
+        },
+        "DUVIDA_IMOVEL": {
+          "f1": 0.5714285714285714,
+          "precision": 0.5,
+          "recall": 0.6666666666666666,
+          "support": 24.0
+        },
+        "FINANCEIRO_LOCACAO": {
+          "f1": 0.14814814814814814,
+          "precision": 0.6666666666666666,
+          "recall": 0.08333333333333333,
+          "support": 24.0
+        },
+        "FORA_DE_ESCOPO": {
+          "f1": 0.2916666666666667,
+          "precision": 0.2916666666666667,
+          "recall": 0.2916666666666667,
+          "support": 24.0
+        },
+        "MANUTENCAO_IMOVEL": {
+          "f1": 0.7272727272727273,
+          "precision": 0.6451612903225806,
+          "recall": 0.8333333333333334,
+          "support": 24.0
+        }
+      },
+      "precision_macro": 0.4619261786600496,
+      "recall_macro": 0.4375
+    }
+  },
+  "versions": {
+    "python": "3.9.6",
+    "sentence_transformers": "5.1.2",
+    "torch": "2.2.2",
+    "transformers": "4.57.6"
+  }
+}

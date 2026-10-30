@@ -1,0 +1,43 @@
+{
+  "baseline": {
+    "batch_8": {
+      "median_ms": 3.2614314999994676,
+      "p95_ms": 4.406172000000375,
+      "repetitions": 20
+    },
+    "batch_throughput_messages_per_second": 2452.91063142099,
+    "serialized_bytes": 424637,
+    "single": {
+      "median_ms": 3.9518080000000566,
+      "p95_ms": 5.089888000000542,
+      "repetitions": 30
+    },
+    "training_seconds": 0.16885598300000026
+  },
+  "device": "cpu",
+  "memory_note": "RAM não medida com precisão neste ambiente.",
+  "transformer": {
+    "artifact_bytes": 545253407,
+    "batch_8": {
+      "median_ms": 169.45143700000108,
+      "p95_ms": 207.7459140000002,
+      "repetitions": 20
+    },
+    "batch_throughput_messages_per_second": 47.21116646535106,
+    "load": {
+      "median_ms": 363.644837999999,
+      "p95_ms": 405.31143099999946,
+      "repetitions": 3
+    },
+    "single": {
+      "median_ms": 41.47201800000033,
+      "p95_ms": 49.76941299999993,
+      "repetitions": 30
+    },
+    "training_seconds": 328.045380219
+  },
+  "warmup": {
+    "batch_8": 1,
+    "single": 1
+  }
+}

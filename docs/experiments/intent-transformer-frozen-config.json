@@ -1,0 +1,211 @@
+{
+  "batch_size": 8,
+  "dataset_hashes": {
+    "challenge": "680b4e9496e1025a1e678dbacc5be17bb676124c33288d52fe2d2d3123a685b5",
+    "test": "f1dffa7f26cebd54ac8cf7b30bb688fd28d88912601fc7c611baa8f5d04f4b15",
+    "train": "3d65cf358fc5806ade6341cf03908b14e001d3ee5d958b409e83aa219ed02e6f",
+    "validation": "c9e725cc17b28d2d99ebb4fc858c5e273ae5d6d0b816a2b6922c7ecee68ddfe6"
+  },
+  "determinism_note": "Seeds fixadas; determinismo absoluto pode variar entre dispositivos e operações.",
+  "device": "cpu",
+  "id2label": {
+    "0": "BUSCA_IMOVEL",
+    "1": "AGENDAR_VISITA",
+    "2": "DUVIDA_IMOVEL",
+    "3": "DOCUMENTACAO_LOCACAO",
+    "4": "FINANCEIRO_LOCACAO",
+    "5": "MANUTENCAO_IMOVEL",
+    "6": "ATENDIMENTO_HUMANO",
+    "7": "FORA_DE_ESCOPO"
+  },
+  "label2id": {
+    "AGENDAR_VISITA": 1,
+    "ATENDIMENTO_HUMANO": 6,
+    "BUSCA_IMOVEL": 0,
+    "DOCUMENTACAO_LOCACAO": 3,
+    "DUVIDA_IMOVEL": 2,
+    "FINANCEIRO_LOCACAO": 4,
+    "FORA_DE_ESCOPO": 7,
+    "MANUTENCAO_IMOVEL": 5
+  },
+  "length_analysis": {
+    "count": 320,
+    "max_length": 64,
+    "maximum": 24,
+    "median": 13.0,
+    "minimum": 6,
+    "p95": 21,
+    "truncated_count": 0,
+    "truncated_percent": 0.0
+  },
+  "license": "Apache-2.0",
+  "max_grad_norm": 1.0,
+  "max_length": 64,
+  "model_id": "distilbert/distilbert-base-multilingual-cased",
+  "model_revision": "45c032ab32cc946ad88a166f7cb282f58c753c2e",
+  "platform": {
+    "machine": "x86_64",
+    "system": "macOS-15.7.4-x86_64-i386-64bit"
+  },
+  "schema_version": "1",
+  "seed": 42,
+  "selected_epochs": 4,
+  "strategy": {
+    "freeze_encoder": false,
+    "learning_rate": 2e-05,
+    "name": "full_fine_tuning"
+  },
+  "taxonomy_hash": "b6fe3207ad4959e8ade126081b80c7d47b778dd9c2c8e7140939d1d7d0f6c1b5",
+  "tokenizer_class": "DistilBertTokenizerFast",
+  "tokenizer_hash": "ba876a3f3c93e3e84fa391819ad1be0414ef9fc5522fbc5c8f3ed23e758a1eff",
+  "validation_metrics": {
+    "accuracy": 0.53125,
+    "confusion_matrix": [
+      [
+        2,
+        1,
+        1,
+        0,
+        0,
+        4,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        2,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        6,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        4,
+        3,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        2,
+        3,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        5,
+        0
+      ],
+      [
+        0,
+        1,
+        4,
+        0,
+        0,
+        0,
+        1,
+        2
+      ]
+    ],
+    "epoch": 4,
+    "f1_macro": 0.5138248234076239,
+    "f1_weighted": 0.5138248234076239,
+    "loss": 1.667104810476303,
+    "min_class_f1": 0.375,
+    "per_class": {
+      "AGENDAR_VISITA": {
+        "f1": 0.47058823529411764,
+        "precision": 0.4444444444444444,
+        "recall": 0.5,
+        "support": 8.0
+      },
+      "ATENDIMENTO_HUMANO": {
+        "f1": 0.7142857142857143,
+        "precision": 0.8333333333333334,
+        "recall": 0.625,
+        "support": 8.0
+      },
+      "BUSCA_IMOVEL": {
+        "f1": 0.4,
+        "precision": 1.0,
+        "recall": 0.25,
+        "support": 8.0
+      },
+      "DOCUMENTACAO_LOCACAO": {
+        "f1": 0.5333333333333333,
+        "precision": 0.5714285714285714,
+        "recall": 0.5,
+        "support": 8.0
+      },
+      "DUVIDA_IMOVEL": {
+        "f1": 0.5217391304347826,
+        "precision": 0.4,
+        "recall": 0.75,
+        "support": 8.0
+      },
+      "FINANCEIRO_LOCACAO": {
+        "f1": 0.375,
+        "precision": 0.375,
+        "recall": 0.375,
+        "support": 8.0
+      },
+      "FORA_DE_ESCOPO": {
+        "f1": 0.4,
+        "precision": 1.0,
+        "recall": 0.25,
+        "support": 8.0
+      },
+      "MANUTENCAO_IMOVEL": {
+        "f1": 0.6956521739130435,
+        "precision": 0.5333333333333333,
+        "recall": 1.0,
+        "support": 8.0
+      }
+    },
+    "precision_macro": 0.6446924603174603,
+    "recall_macro": 0.53125
+  },
+  "versions": {
+    "python": "3.9.6",
+    "sentence_transformers": "5.1.2",
+    "torch": "2.2.2",
+    "transformers": "4.57.6"
+  },
+  "warmup_ratio": 0.1,
+  "weight_decay": 0.01
+}

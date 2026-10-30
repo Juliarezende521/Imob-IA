@@ -28,7 +28,11 @@ em [`docs/hybrid-search.md`](docs/hybrid-search.md).
 O classificador está descrito em
 [`docs/intent-classification.md`](docs/intent-classification.md).
 Existe também um challenge final sintético e congelado, documentado em
-[`docs/intent-challenge-set.md`](docs/intent-challenge-set.md), ainda sem métricas.
+[`docs/intent-challenge-set.md`](docs/intent-challenge-set.md). O experimento
+Transformer local e sua comparação final estão documentados em
+[`docs/intent-transformer.md`](docs/intent-transformer.md) e
+[`docs/intent-transformer-evaluation.md`](docs/intent-transformer-evaluation.md).
+No conjunto atual, o baseline tradicional continua sendo a opção recomendada.
 
 ## Estrutura
 
