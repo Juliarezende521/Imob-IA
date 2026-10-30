@@ -4,8 +4,9 @@ Projeto de **engenharia de IA** aplicado a um problema imobiliário sintético.
 A prioridade é construir uma solução tecnicamente sólida, com Machine Learning,
 avaliação reproduzível, busca semântica e RAG com fontes.
 
-> Status: recuperação lexical, semântica e híbrida, mais um baseline local de
-> classificação de intenções com dados sintéticos. Ainda não há API.
+> Status: recuperação lexical, semântica e híbrida, classificação local de
+> intenções e API FastAPI para demonstração. A busca lexical e o classificador
+> tradicional permanecem como padrões.
 
 ## Objetivo técnico
 
@@ -33,6 +34,33 @@ Transformer local e sua comparação final estão documentados em
 [`docs/intent-transformer.md`](docs/intent-transformer.md) e
 [`docs/intent-transformer-evaluation.md`](docs/intent-transformer-evaluation.md).
 No conjunto atual, o baseline tradicional continua sendo a opção recomendada.
+A API local está documentada em [`docs/api.md`](docs/api.md), com validação e
+benchmark em [`docs/api-evaluation.md`](docs/api-evaluation.md).
+
+## API local
+
+Após preparar o ambiente, inicie o servidor apenas na interface local:
+
+```bash
+uvicorn imob_ai.api.app:create_app --factory --host 127.0.0.1 --port 8000
+```
+
+A documentação interativa fica em <http://127.0.0.1:8000/docs>. A API expõe
+saúde, classificação de intenção, busca lexical e roteamento determinístico.
+Ela treina uma única instância do baseline TF-IDF + Regressão Logística na
+inicialização, exclusivamente com treino + validação. O Transformer não é
+carregado pela API.
+
+Exemplo:
+
+```bash
+curl -s -X POST http://127.0.0.1:8000/v1/intents/classify \
+  -H 'Content-Type: application/json' \
+  -d '{"message":"Quero visitar o apartamento amanhã"}'
+```
+
+Todos os dados são sintéticos. Esta é uma demonstração local, sem autenticação,
+controle de taxa ou garantias para uso em produção.
 
 ## Estrutura
 

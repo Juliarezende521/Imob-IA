@@ -1,0 +1,232 @@
+{
+  "candidates": [
+    {
+      "accepted": 64,
+      "coverage": 1.0,
+      "minimum_margin": 0.0,
+      "minimum_model_score": 0.0,
+      "reviewed": 0,
+      "selective_accuracy": 0.765625
+    },
+    {
+      "accepted": 56,
+      "coverage": 0.875,
+      "minimum_margin": 0.02,
+      "minimum_model_score": 0.0,
+      "reviewed": 8,
+      "selective_accuracy": 0.8392857142857143
+    },
+    {
+      "accepted": 46,
+      "coverage": 0.71875,
+      "minimum_margin": 0.05,
+      "minimum_model_score": 0.0,
+      "reviewed": 18,
+      "selective_accuracy": 0.8913043478260869
+    },
+    {
+      "accepted": 40,
+      "coverage": 0.625,
+      "minimum_margin": 0.1,
+      "minimum_model_score": 0.0,
+      "reviewed": 24,
+      "selective_accuracy": 0.9
+    },
+    {
+      "accepted": 26,
+      "coverage": 0.40625,
+      "minimum_margin": 0.15,
+      "minimum_model_score": 0.0,
+      "reviewed": 38,
+      "selective_accuracy": 0.9615384615384616
+    },
+    {
+      "accepted": 55,
+      "coverage": 0.859375,
+      "minimum_margin": 0.0,
+      "minimum_model_score": 0.2,
+      "reviewed": 9,
+      "selective_accuracy": 0.8363636363636363
+    },
+    {
+      "accepted": 51,
+      "coverage": 0.796875,
+      "minimum_margin": 0.02,
+      "minimum_model_score": 0.2,
+      "reviewed": 13,
+      "selective_accuracy": 0.8823529411764706
+    },
+    {
+      "accepted": 46,
+      "coverage": 0.71875,
+      "minimum_margin": 0.05,
+      "minimum_model_score": 0.2,
+      "reviewed": 18,
+      "selective_accuracy": 0.8913043478260869
+    },
+    {
+      "accepted": 40,
+      "coverage": 0.625,
+      "minimum_margin": 0.1,
+      "minimum_model_score": 0.2,
+      "reviewed": 24,
+      "selective_accuracy": 0.9
+    },
+    {
+      "accepted": 26,
+      "coverage": 0.40625,
+      "minimum_margin": 0.15,
+      "minimum_model_score": 0.2,
+      "reviewed": 38,
+      "selective_accuracy": 0.9615384615384616
+    },
+    {
+      "accepted": 42,
+      "coverage": 0.65625,
+      "minimum_margin": 0.0,
+      "minimum_model_score": 0.25,
+      "reviewed": 22,
+      "selective_accuracy": 0.9047619047619048
+    },
+    {
+      "accepted": 41,
+      "coverage": 0.640625,
+      "minimum_margin": 0.02,
+      "minimum_model_score": 0.25,
+      "reviewed": 23,
+      "selective_accuracy": 0.926829268292683
+    },
+    {
+      "accepted": 40,
+      "coverage": 0.625,
+      "minimum_margin": 0.05,
+      "minimum_model_score": 0.25,
+      "reviewed": 24,
+      "selective_accuracy": 0.925
+    },
+    {
+      "accepted": 38,
+      "coverage": 0.59375,
+      "minimum_margin": 0.1,
+      "minimum_model_score": 0.25,
+      "reviewed": 26,
+      "selective_accuracy": 0.9210526315789473
+    },
+    {
+      "accepted": 26,
+      "coverage": 0.40625,
+      "minimum_margin": 0.15,
+      "minimum_model_score": 0.25,
+      "reviewed": 38,
+      "selective_accuracy": 0.9615384615384616
+    },
+    {
+      "accepted": 28,
+      "coverage": 0.4375,
+      "minimum_margin": 0.0,
+      "minimum_model_score": 0.3,
+      "reviewed": 36,
+      "selective_accuracy": 0.9642857142857143
+    },
+    {
+      "accepted": 28,
+      "coverage": 0.4375,
+      "minimum_margin": 0.02,
+      "minimum_model_score": 0.3,
+      "reviewed": 36,
+      "selective_accuracy": 0.9642857142857143
+    },
+    {
+      "accepted": 28,
+      "coverage": 0.4375,
+      "minimum_margin": 0.05,
+      "minimum_model_score": 0.3,
+      "reviewed": 36,
+      "selective_accuracy": 0.9642857142857143
+    },
+    {
+      "accepted": 28,
+      "coverage": 0.4375,
+      "minimum_margin": 0.1,
+      "minimum_model_score": 0.3,
+      "reviewed": 36,
+      "selective_accuracy": 0.9642857142857143
+    },
+    {
+      "accepted": 26,
+      "coverage": 0.40625,
+      "minimum_margin": 0.15,
+      "minimum_model_score": 0.3,
+      "reviewed": 38,
+      "selective_accuracy": 0.9615384615384616
+    },
+    {
+      "accepted": 18,
+      "coverage": 0.28125,
+      "minimum_margin": 0.0,
+      "minimum_model_score": 0.35,
+      "reviewed": 46,
+      "selective_accuracy": 1.0
+    },
+    {
+      "accepted": 18,
+      "coverage": 0.28125,
+      "minimum_margin": 0.02,
+      "minimum_model_score": 0.35,
+      "reviewed": 46,
+      "selective_accuracy": 1.0
+    },
+    {
+      "accepted": 18,
+      "coverage": 0.28125,
+      "minimum_margin": 0.05,
+      "minimum_model_score": 0.35,
+      "reviewed": 46,
+      "selective_accuracy": 1.0
+    },
+    {
+      "accepted": 18,
+      "coverage": 0.28125,
+      "minimum_margin": 0.1,
+      "minimum_model_score": 0.35,
+      "reviewed": 46,
+      "selective_accuracy": 1.0
+    },
+    {
+      "accepted": 17,
+      "coverage": 0.265625,
+      "minimum_margin": 0.15,
+      "minimum_model_score": 0.35,
+      "reviewed": 47,
+      "selective_accuracy": 1.0
+    }
+  ],
+  "limitation": "Decisão operacional baseada em apenas 64 mensagens sintéticas.",
+  "margin_candidates": [
+    0.0,
+    0.02,
+    0.05,
+    0.1,
+    0.15
+  ],
+  "minimum_coverage": 0.5,
+  "schema_version": "1",
+  "score_candidates": [
+    0.0,
+    0.2,
+    0.25,
+    0.3,
+    0.35
+  ],
+  "score_note": "model_score não é certeza nem probabilidade calibrada.",
+  "selected": {
+    "accepted": 41,
+    "coverage": 0.640625,
+    "minimum_margin": 0.02,
+    "minimum_model_score": 0.25,
+    "reviewed": 23,
+    "selective_accuracy": 0.926829268292683
+  },
+  "selection_split": "validation",
+  "validation_size": 64
+}

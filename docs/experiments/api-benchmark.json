@@ -1,0 +1,25 @@
+{
+  "assistant_route": {
+    "median_ms": 8.445095999999763,
+    "p95_ms": 9.657180999999682,
+    "repetitions": 30
+  },
+  "classification": {
+    "median_ms": 7.410064499999924,
+    "p95_ms": 10.215457999999789,
+    "repetitions": 30
+  },
+  "environment": {
+    "machine": "x86_64",
+    "platform": "macOS-15.7.4-x86_64-i386-64bit",
+    "python": "3.9.6"
+  },
+  "property_search": {
+    "median_ms": 5.471316999999809,
+    "p95_ms": 6.731013000000008,
+    "repetitions": 30
+  },
+  "scope_note": "Benchmark local; não representa capacidade de produção.",
+  "startup_ms": 217.77341999999987,
+  "warmup_requests_per_endpoint": 1
+}
