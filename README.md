@@ -27,6 +27,8 @@ As buscas e avaliações estão documentadas em
 em [`docs/hybrid-search.md`](docs/hybrid-search.md).
 O classificador está descrito em
 [`docs/intent-classification.md`](docs/intent-classification.md).
+Existe também um challenge final sintético e congelado, documentado em
+[`docs/intent-challenge-set.md`](docs/intent-challenge-set.md), ainda sem métricas.
 
 ## Estrutura
 

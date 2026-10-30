@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 
 from imob_ai.intent.dataset import load_intent_dataset
 from imob_ai.intent.features import CANDIDATE_CONFIGS, FeatureConfig
-from imob_ai.intent.model import build_pipeline
+from imob_ai.intent.model import fit_pipeline
 from imob_ai.intent.schemas import DatasetSplit, IntentMessage
 
 # Congelado após seleção exclusiva em validation.
@@ -31,8 +31,13 @@ def select_configuration(
     records: Sequence[IntentMessage],
     configs: Sequence[FeatureConfig] = CANDIDATE_CONFIGS,
 ) -> tuple[list[CandidateResult], CandidateResult]:
-    splits = {item.split for item in records}
-    if DatasetSplit.TEST in splits:
+    split_values = {
+        getattr(getattr(item, "split", None), "value", getattr(item, "split", None))
+        for item in records
+    }
+    if "challenge" in split_values:
+        raise ValueError("Seleção não aceita registros do split challenge.")
+    if DatasetSplit.TEST.value in split_values:
         raise ValueError("Seleção não aceita registros do split test.")
     train = [item for item in records if item.split == DatasetSplit.TRAIN]
     validation = [item for item in records if item.split == DatasetSplit.VALIDATION]
@@ -41,10 +46,7 @@ def select_configuration(
 
     results: list[CandidateResult] = []
     for config in configs:
-        pipeline = build_pipeline(config)
-        pipeline.fit(
-            [item.text for item in train], [item.intent.value for item in train]
-        )
+        pipeline = fit_pipeline(config, train)
         predicted = pipeline.predict([item.text for item in validation])
         expected = [item.intent.value for item in validation]
         class_f1 = f1_score(expected, predicted, average=None, zero_division=0)

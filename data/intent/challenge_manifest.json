@@ -1,0 +1,35 @@
+{
+  "by_difficulty": {
+    "easy": 64,
+    "hard": 64,
+    "medium": 64
+  },
+  "by_intent": {
+    "AGENDAR_VISITA": 24,
+    "ATENDIMENTO_HUMANO": 24,
+    "BUSCA_IMOVEL": 24,
+    "DOCUMENTACAO_LOCACAO": 24,
+    "DUVIDA_IMOVEL": 24,
+    "FINANCEIRO_LOCACAO": 24,
+    "FORA_DE_ESCOPO": 24,
+    "MANUTENCAO_IMOVEL": 24
+  },
+  "classes": [
+    "AGENDAR_VISITA",
+    "ATENDIMENTO_HUMANO",
+    "BUSCA_IMOVEL",
+    "DOCUMENTACAO_LOCACAO",
+    "DUVIDA_IMOVEL",
+    "FINANCEIRO_LOCACAO",
+    "FORA_DE_ESCOPO",
+    "MANUTENCAO_IMOVEL"
+  ],
+  "dataset_version": "challenge-v1",
+  "families": 48,
+  "file": "challenge_messages.jsonl",
+  "schema_version": "1",
+  "sha256": "680b4e9496e1025a1e678dbacc5be17bb676124c33288d52fe2d2d3123a685b5",
+  "synthetic": true,
+  "total": 192,
+  "usage_declaration": "Não utilizado para treino, seleção, predição, inferência ou avaliação neste marco."
+}

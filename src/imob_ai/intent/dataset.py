@@ -66,6 +66,15 @@ def load_intent_dataset(
     return records
 
 
+def load_training_records(
+    path: Union[str, Path] = DEFAULT_DATASET_PATH,
+) -> list[IntentMessage]:
+    """Carrega exclusivamente treino; o challenge vive em arquivo separado."""
+    return [
+        item for item in load_intent_dataset(path) if item.split == DatasetSplit.TRAIN
+    ]
+
+
 def validate_dataset(records: list[IntentMessage]) -> None:
     if not records:
         raise IntentDatasetError("O dataset não pode estar vazio.")

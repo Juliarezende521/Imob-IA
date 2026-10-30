@@ -30,3 +30,19 @@ Limitações: o conjunto é pequeno, balanceado artificialmente e não cobre tod
 linguagem, ambiguidade, ruído ou distribuição de uso real. Ele serve para
 aprendizado e comparação controlada; não deve orientar atendimento ou decisões
 comerciais reais.
+
+## Challenge final
+
+`challenge_messages.jsonl` contém 192 novas mensagens sintéticas congeladas como
+`challenge-v1`. São 24 por classe, 48 famílias inéditas e 64 exemplos em cada
+nível de dificuldade. Ele não integra treino, validação ou a avaliação anterior.
+
+O arquivo `challenge_manifest.json` protege sua integridade com SHA-256. Para
+validar estrutura, independência textual e manifesto, sem executar modelos:
+
+```bash
+python -m imob_ai.intent.challenge
+```
+
+O challenge só poderá ser usado uma vez depois do congelamento de um futuro
+Transformer, conforme o protocolo em `docs/intent-challenge-set.md`.

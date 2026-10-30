@@ -1,6 +1,8 @@
 """Construção e uso do classificador tradicional."""
 
+from collections.abc import Sequence
 from dataclasses import dataclass
+from typing import Any
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
@@ -32,6 +34,23 @@ def build_pipeline(config: FeatureConfig) -> Pipeline:
             ),
         ]
     )
+
+
+def fit_pipeline(config: FeatureConfig, records: Sequence[Any]) -> Pipeline:
+    """Ajusta o pipeline somente com registros de treino, nunca challenge."""
+    split_values = {
+        getattr(getattr(item, "split", None), "value", getattr(item, "split", None))
+        for item in records
+    }
+    if "challenge" in split_values:
+        raise ValueError("O challenge é congelado e não pode ajustar TF-IDF ou modelo.")
+    if split_values != {"train"}:
+        raise ValueError("O ajuste exige exclusivamente registros de treino.")
+    pipeline = build_pipeline(config)
+    pipeline.fit(
+        [item.text for item in records], [item.intent.value for item in records]
+    )
+    return pipeline
 
 
 def predict_message(pipeline: Pipeline, text: str) -> IntentPrediction:
