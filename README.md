@@ -5,8 +5,8 @@ A prioridade é construir uma solução tecnicamente sólida, com Machine Learni
 avaliação reproduzível, busca semântica e RAG com fontes.
 
 > Status: recuperação lexical, semântica e híbrida, classificação local de
-> intenções e API FastAPI para demonstração. A busca lexical e o classificador
-> tradicional permanecem como padrões.
+> intenções, API FastAPI e interface Streamlit para demonstração local. A busca
+> lexical e o classificador tradicional permanecem como padrões.
 
 ## Objetivo técnico
 
@@ -61,6 +61,33 @@ curl -s -X POST http://127.0.0.1:8000/v1/intents/classify \
 
 Todos os dados são sintéticos. Esta é uma demonstração local, sem autenticação,
 controle de taxa ou garantias para uso em produção.
+
+## Demonstração local
+
+A interface Streamlit consome exclusivamente a API FastAPI por HTTP:
+
+```text
+Streamlit → FastAPI → classificador TF-IDF + LogReg
+                   → busca lexical
+                   → roteador seguro
+```
+
+Com a API em execução no primeiro terminal, abra outro terminal e use:
+
+```bash
+source .venv/bin/activate
+IMOB_AI_API_URL=http://127.0.0.1:8000 \
+  streamlit run src/imob_ai/ui/app.py
+```
+
+A demonstração possui áreas de assistente, busca de imóveis, explicação dos
+resultados e visão técnica do projeto. Não há LLM, geração livre, persistência
+de conversas ou dados reais. Instruções completas estão em
+[`docs/local-demo.md`](docs/local-demo.md).
+
+> Screenshot da interface: pendente de revisão manual.
+
+Stack principal: Python, Pydantic, scikit-learn, FastAPI, HTTPX e Streamlit.
 
 ## Estrutura
 
