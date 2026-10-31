@@ -75,6 +75,12 @@ Envia uma mensagem ao endpoint `/v1/assistant/route`. Mostra intenção,
 O valor `model_score` representa força relativa da decisão, não probabilidade
 calibrada.
 
+Para buscas, a tela também mostra `Entendi sua busca como`, com filtros
+reconhecidos, correções controladas e características usadas no ranking. Uma
+localização desconhecida aparece como restrição não resolvida; a busca não é
+executada até a mensagem ser reformulada. Esse aviso é diferente de uma busca
+válida com zero resultados e de uma falha técnica da API.
+
 ### Buscar imóveis
 
 Usa `/v1/properties/search` com texto livre, finalidade, tipo, localização,
@@ -106,6 +112,7 @@ As sugestões nunca são executadas automaticamente.
 
 ```bash
 pytest tests/test_ui_api_client.py tests/test_ui_presenters.py tests/test_ui_config.py
+pytest tests/test_query_understanding.py
 pytest
 ruff check .
 ruff format --check .
@@ -144,6 +151,7 @@ verificado novamente pelo botão `Verificar conexão`.
 - não há autenticação, TLS, rate limiting ou banco de dados;
 - datasets e catálogo são pequenos e inteiramente sintéticos;
 - resultados e thresholds não devem ser generalizados para dados reais;
+- a compreensão textual cobre apenas aliases e padrões explícitos documentados;
 - o estado temporário do Streamlit desaparece quando a sessão é encerrada.
 
 Antes de exposição pública seriam necessários controles de acesso, revisão de

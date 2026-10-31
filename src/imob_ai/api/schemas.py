@@ -12,6 +12,7 @@ from imob_ai.api.config import (
     MAX_SEARCH_LIMIT,
 )
 from imob_ai.data.schemas import Property, PropertyPurpose, PropertyType
+from imob_ai.query_understanding.schemas import QueryInterpretation
 from imob_ai.search.schemas import PropertySearchQuery, SearchSort
 
 
@@ -143,6 +144,7 @@ class AssistantRequest(MessageRequest):
 
 class RouteAction(str, Enum):
     SEARCH_PROPERTIES = "search_properties"
+    CLARIFY_SEARCH = "clarify_search"
     HUMAN_REVIEW = "human_review"
     IDENTIFY_PROPERTY = "identify_property"
     PROVIDE_GENERIC_DOCUMENT_GUIDANCE = "provide_generic_document_guidance"
@@ -157,6 +159,8 @@ class AssistantResponse(StrictModel):
     action: RouteAction
     message: str
     search: Optional[PropertySearchResponse] = None
+    interpreted_query: Optional[QueryInterpretation] = None
+    requires_clarification: bool = False
     generative_ai_used: bool = False
 
 

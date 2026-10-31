@@ -132,9 +132,47 @@ class PropertySearchResult(StrictModel):
     synthetic_data: bool
 
 
+class ExtractedPropertyFilters(StrictModel):
+    purpose: Optional[PropertyPurpose] = None
+    property_type: Optional[PropertyType] = None
+    city: Optional[str] = None
+    neighborhood: Optional[str] = None
+    max_price: Optional[float] = None
+    min_bedrooms: Optional[int] = None
+    min_bathrooms: Optional[int] = None
+    min_parking_spaces: Optional[int] = None
+    pets_allowed: Optional[bool] = None
+    furnished: Optional[bool] = None
+
+
+class RecognizedConstraint(StrictModel):
+    field: str
+    value: Any
+    source_text: str
+    corrected_from: Optional[str] = None
+
+
+class UnresolvedConstraint(StrictModel):
+    field: str
+    value: str
+    reason: str
+
+
+class QueryInterpretation(StrictModel):
+    original_query: str
+    normalized_query: str
+    extracted_filters: ExtractedPropertyFilters
+    remaining_text: Optional[str] = None
+    recognized_constraints: list[RecognizedConstraint]
+    unresolved_constraints: list[UnresolvedConstraint]
+    requires_clarification: bool
+
+
 class AssistantResult(StrictModel):
     classification: Classification
     action: str
     message: str
     search: Optional[PropertySearchResult] = None
+    interpreted_query: Optional[QueryInterpretation] = None
+    requires_clarification: bool = False
     generative_ai_used: bool

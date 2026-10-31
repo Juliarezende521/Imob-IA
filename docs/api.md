@@ -87,6 +87,19 @@ Somente `BUSCA_IMOVEL` aciona a busca. Demais intenções produzem ações segur
 como orientação genérica, identificação do imóvel ou encaminhamento humano.
 Classificações incertas sempre viram `human_review`. Não existe geração livre.
 
+Quando a intenção aceita é `BUSCA_IMOVEL`, a rota interpreta finalidade, tipo,
+cidade, bairro e alguns filtros explícitos antes de chamar a busca. A resposta
+inclui `interpreted_query` e `requires_clarification`. O texto restante é usado
+somente para ranking entre candidatos que já atendem aos filtros `AND`.
+
+Se uma localização não existe no catálogo, a ação é `clarify_search`, `search`
+permanece nulo e a mensagem solicita correção. Zero resultados com critérios
+válidos é retornado honestamente, sem remoção automática de filtros. O endpoint
+manual `/v1/properties/search` não mudou.
+
+Detalhes do vocabulário e da avaliação estão em
+[`query-understanding.md`](query-understanding.md).
+
 ## Política de incerteza
 
 A política foi calibrada somente nos 64 exemplos sintéticos de validação. Foram

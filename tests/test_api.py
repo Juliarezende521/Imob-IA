@@ -192,6 +192,122 @@ def test_search_route_and_optional_filters():
     assert body["search"]["synthetic_data"] is True
 
 
+def test_assistant_applies_extracted_filters_with_strict_and_policy():
+    client, _ = client_for(FakeClassifier(intent="BUSCA_IMOVEL"))
+    with client:
+        body = client.post(
+            "/v1/assistant/route",
+            json={"message": "Quero uma casa para alugar em Franca."},
+        ).json()
+    assert body["action"] == "search_properties"
+    assert body["requires_clarification"] is False
+    assert body["interpreted_query"]["extracted_filters"] == {
+        "purpose": "aluguel",
+        "property_type": "casa",
+        "city": "Franca",
+        "neighborhood": None,
+        "max_price": None,
+        "min_bedrooms": None,
+        "min_bathrooms": None,
+        "min_parking_spaces": None,
+        "pets_allowed": None,
+        "furnished": None,
+    }
+    assert body["search"]["results"]
+    assert all(
+        item["property"]["purpose"] == "aluguel"
+        and item["property"]["property_type"] == "casa"
+        and item["property"]["city"] == "Franca"
+        for item in body["search"]["results"]
+    )
+
+
+def test_assistant_uses_remaining_text_only_inside_filtered_candidates():
+    client, _ = client_for(FakeClassifier(intent="BUSCA_IMOVEL"))
+    with client:
+        body = client.post(
+            "/v1/assistant/route",
+            json={"message": "Quero casa em Franca com quintal."},
+        ).json()
+    assert body["interpreted_query"]["remaining_text"] == "quintal"
+    assert body["search"]["results"]
+    assert all(
+        item["property"]["property_type"] == "casa"
+        and item["property"]["city"] == "Franca"
+        for item in body["search"]["results"]
+    )
+
+
+def test_assistant_respects_known_neighborhood():
+    client, _ = client_for(FakeClassifier(intent="BUSCA_IMOVEL"))
+    with client:
+        body = client.post(
+            "/v1/assistant/route",
+            json={"message": "Quero imóvel no Centro em Franca."},
+        ).json()
+    assert body["requires_clarification"] is False
+    assert all(
+        item["property"]["neighborhood"] == "Centro"
+        and item["property"]["city"] == "Franca"
+        for item in body["search"]["results"]
+    )
+
+
+def test_unknown_location_requests_clarification_without_search():
+    client, _ = client_for(FakeClassifier(intent="BUSCA_IMOVEL"))
+    with client:
+        body = client.post(
+            "/v1/assistant/route",
+            json={"message": "Quero casa em Sorocaba."},
+        ).json()
+    assert body["action"] == "clarify_search"
+    assert body["requires_clarification"] is True
+    assert body["search"] is None
+    assert "Sorocaba" in body["message"]
+
+
+def test_observed_regression_never_returns_campinas_or_land():
+    client, _ = client_for(FakeClassifier(intent="BUSCA_IMOVEL"))
+    message = "eu alugar um acasa no city petropolis em franca"
+    with client:
+        body = client.post("/v1/assistant/route", json={"message": message}).json()
+    filters = body["interpreted_query"]["extracted_filters"]
+    unresolved = body["interpreted_query"]["unresolved_constraints"]
+    assert filters["purpose"] == "aluguel"
+    assert filters["property_type"] == "casa"
+    assert filters["city"] == "Franca"
+    assert unresolved[0]["value"] == "city petropolis"
+    assert body["requires_clarification"] is True
+    assert body["search"] is None
+
+
+def test_valid_filters_with_no_matches_return_honest_zero():
+    client, _ = client_for(FakeClassifier(intent="BUSCA_IMOVEL"))
+    with client:
+        body = client.post(
+            "/v1/assistant/route",
+            json={"message": "Procuro apartamento à venda em São Paulo."},
+        ).json()
+    assert body["requires_clarification"] is False
+    assert body["search"]["results"] == []
+    assert body["search"]["total"] == 0
+    assert "todos os critérios" in body["message"]
+
+
+def test_conflicting_explicit_and_extracted_location_does_not_relax_filter():
+    client, _ = client_for(FakeClassifier(intent="BUSCA_IMOVEL"))
+    with client:
+        body = client.post(
+            "/v1/assistant/route",
+            json={
+                "message": "Quero casa em Franca.",
+                "search_filters": {"city": "Campinas"},
+            },
+        ).json()
+    assert body["requires_clarification"] is True
+    assert body["search"] is None
+
+
 def test_uncertain_route_goes_directly_to_human_review():
     client, _ = client_for(FakeClassifier(review=True))
     with client:

@@ -85,6 +85,11 @@ resultados e visão técnica do projeto. Não há LLM, geração livre, persist�
 de conversas ou dados reais. Instruções completas estão em
 [`docs/local-demo.md`](docs/local-demo.md).
 
+As buscas iniciadas por mensagem passam por uma camada determinística que
+transforma finalidade, tipo e localização em filtros estritos. Localizações não
+resolvidas pedem esclarecimento em vez de mostrar resultados incompatíveis.
+Consulte [`docs/query-understanding.md`](docs/query-understanding.md).
+
 > Screenshot da interface: pendente de revisão manual.
 
 Stack principal: Python, Pydantic, scikit-learn, FastAPI, HTTPX e Streamlit.

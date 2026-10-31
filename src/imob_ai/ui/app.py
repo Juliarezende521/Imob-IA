@@ -21,6 +21,7 @@ from imob_ai.ui.schemas import (
     AssistantResult,
     PropertySearchInput,
     PropertySearchResult,
+    QueryInterpretation,
 )
 
 SYNTHETIC_NOTICE = (
@@ -97,12 +98,59 @@ def render_assistant_result(result: AssistantResult, submitted_message: str) -> 
             st.caption(f"Motivo: {classification.review_reason}")
     else:
         st.success(uncertainty_label(classification))
+    if result.interpreted_query is not None:
+        render_interpretation(result.interpreted_query)
+    if result.requires_clarification:
+        st.warning(
+            "A busca não foi executada porque uma restrição importante precisa "
+            "ser esclarecida. Reformule a mensagem e tente novamente."
+        )
     st.write(result.message)
     st.write("**Próximo passo:** " + ACTION_LABELS.get(result.action, result.action))
     if human_follow_up(result.action):
         st.info("Próximo passo seguro: continuar com atendimento humano.")
     if result.search is not None:
         render_property_cards(result.search)
+
+
+def render_interpretation(interpretation: QueryInterpretation) -> None:
+    labels = {
+        "purpose": "Finalidade",
+        "property_type": "Tipo",
+        "city": "Cidade",
+        "neighborhood": "Bairro",
+        "max_price": "Preço máximo",
+        "min_bedrooms": "Dormitórios mínimos",
+        "min_bathrooms": "Banheiros mínimos",
+        "min_parking_spaces": "Vagas mínimas",
+        "pets_allowed": "Aceita animais",
+        "furnished": "Mobiliado",
+    }
+    with st.container(border=True):
+        st.subheader("Entendi sua busca como")
+        if not interpretation.recognized_constraints:
+            st.caption("Nenhum filtro estruturado foi reconhecido.")
+        for constraint in interpretation.recognized_constraints:
+            label = labels.get(constraint.field, constraint.field)
+            value = constraint.value
+            if isinstance(value, bool):
+                value = "Sim" if value else "Não"
+            if constraint.field == "max_price" and isinstance(value, (int, float)):
+                value = format_currency(float(value))
+            correction = (
+                f" (interpretação conservadora de “{constraint.corrected_from}”)"
+                if constraint.corrected_from
+                else ""
+            )
+            st.markdown(f"- **{label}:** {value}{correction}")
+        for constraint in interpretation.unresolved_constraints:
+            label = labels.get(constraint.field, constraint.field)
+            st.markdown(f"- **{label}:** {constraint.value} — não encontrado")
+        if interpretation.remaining_text:
+            st.caption(
+                "Características usadas no ranking lexical: "
+                f"{interpretation.remaining_text}"
+            )
 
 
 def render_connection(config: UiConfig) -> None:

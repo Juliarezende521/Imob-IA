@@ -9,6 +9,7 @@ SCORE_EXPLANATION = (
 
 ACTION_LABELS = {
     "search_properties": "Buscar imóveis",
+    "clarify_search": "Esclarecer critérios da busca",
     "human_review": "Revisão humana",
     "identify_property": "Identificar o imóvel",
     "provide_generic_document_guidance": "Orientação documental geral",
