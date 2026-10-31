@@ -94,6 +94,22 @@ Consulte [`docs/query-understanding.md`](docs/query-understanding.md).
 
 Stack principal: Python, Pydantic, scikit-learn, FastAPI, HTTPX e Streamlit.
 
+## Preparação local para o Hugging Face Hub
+
+O projeto prepara, sem publicar, dois pacotes separados: o dataset sintético de
+384 mensagens e o baseline TF-IDF + Regressão Logística em formato `skops`. O
+challenge permanece excluído. A publicação está bloqueada até uma decisão de
+licença e não há links ou badges que aleguem hospedagem atual.
+
+```bash
+python -m pip install -e '.[hub,dev]'
+python -m imob_ai.hub.prepare
+python -m imob_ai.hub.prepare --validate-only
+```
+
+Os artefatos revisáveis ficam em `build/huggingface/` (ignorado pelo Git).
+Consulte [`docs/hugging-face-publication.md`](docs/hugging-face-publication.md).
+
 ## Estrutura
 
 ```text

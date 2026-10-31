@@ -28,6 +28,7 @@ models/*
 !models/.gitkeep
 artifacts/*
 !artifacts/.gitkeep
+build/
 
 .hf_home/
 data/embeddings/
