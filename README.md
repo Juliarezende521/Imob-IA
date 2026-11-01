@@ -113,6 +113,22 @@ python -m imob_ai.hub.prepare --validate-only
 Os artefatos revisáveis ficam em `build/huggingface/` (ignorado pelo Git).
 Consulte [`docs/hugging-face-publication.md`](docs/hugging-face-publication.md).
 
+## Hugging Face
+
+- [Dataset sintético de intenções](https://huggingface.co/datasets/JuliaRezende521/imob-ai-intent-dataset-pt)
+- [Modelo TF-IDF + Regressão Logística](https://huggingface.co/JuliaRezende521/imob-ai-intent-classifier-pt)
+
+O dataset contém 384 mensagens sintéticas em português e nenhum dado pessoal ou
+mensagem real. O modelo é um baseline educacional e não está pronto para
+produção. Para validar os arquivos públicos, hashes e exemplos sem autenticação:
+
+```bash
+python -m imob_ai.hub.verify_publication
+```
+
+Detalhes de download e carregamento seguro com `skops` estão em
+[`docs/hugging-face.md`](docs/hugging-face.md).
+
 ## Estrutura
 
 ```text
