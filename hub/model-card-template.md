@@ -7,7 +7,7 @@ tags:
   - scikit-learn
   - tf-idf
   - logistic-regression
-license: other
+license: apache-2.0
 ---
 
 # ImobAI Portuguese Intent Baseline
@@ -20,9 +20,12 @@ and Logistic Regression.
 **Model SHA-256:** `$model_hash`  
 **Dataset content SHA-256:** `$dataset_hash`  
 **Source project:** $github_url  
+**License:** Apache License 2.0 (`apache-2.0`)
+
 **License status:** `$license_status`
 
-Publication must remain blocked until the model and dataset licenses are reviewed.
+Apache 2.0 applies to this model artifact and its package files. It does not
+replace or alter the licenses of scikit-learn, NumPy, skops, or other libraries.
 
 ## Architecture and training
 
@@ -98,6 +101,6 @@ not trained on real conversations and may fail on dialects, spelling variation,
 ambiguous requests, code-switching, or unseen scenarios. Human escalation is
 required for uncertain or consequential cases.
 
-No real messages or personal data are included. Before any public or production
-use, review licensing, privacy, representative data, fairness, monitoring,
-security, and incident handling.
+No real messages or personal data are included. This model is not ready for
+production. Before any public or production use, review privacy, representative
+data, fairness, monitoring, security, dependency licenses, and incident handling.

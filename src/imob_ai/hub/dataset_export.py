@@ -2,11 +2,13 @@
 
 import hashlib
 import json
+import shutil
 from collections import Counter
 from pathlib import Path
 from string import Template
 
 from imob_ai.hub.metadata import (
+    DATASET_LICENSE_ID,
     GITHUB_URL,
     LABELS,
     LICENSE_STATUS,
@@ -52,6 +54,9 @@ def export_dataset(package_dir: Path) -> dict[str, object]:
     data_dir = package_dir / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
     records = load_intent_dataset()
+    shutil.copyfile(
+        PROJECT_ROOT / "hub" / "licenses" / "CC-BY-4.0.txt", package_dir / "LICENSE"
+    )
     for split in SPLIT_ORDER:
         exported = sorted(
             (_public_record(record) for record in records if record.split == split),
@@ -84,6 +89,7 @@ def export_dataset(package_dir: Path) -> dict[str, object]:
             "split_counts": summary["by_split"],
             "class_counts": dict(sorted(counts.items())),
             "dataset_content_sha256": content_hash,
+            "license": DATASET_LICENSE_ID,
         },
     )
     return manifest

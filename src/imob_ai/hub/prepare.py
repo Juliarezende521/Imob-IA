@@ -6,7 +6,12 @@ import shutil
 from pathlib import Path
 
 from imob_ai.hub.dataset_export import export_dataset
-from imob_ai.hub.metadata import DEFAULT_OUTPUT, PROJECT_ROOT
+from imob_ai.hub.metadata import (
+    DEFAULT_OUTPUT,
+    LICENSE_STATUS,
+    PROJECT_ROOT,
+    PUBLICATION_STATUS,
+)
 from imob_ai.hub.model_export import export_model
 from imob_ai.hub.validation import (
     HubValidationError,
@@ -72,9 +77,9 @@ def main() -> None:
         json.dumps(
             {
                 "output": str(output.relative_to(PROJECT_ROOT)),
-                "status": "prepared_not_published",
+                "status": PUBLICATION_STATUS,
                 "network_used": False,
-                "license_status": "LICENSE_REVIEW_REQUIRED",
+                "license_status": LICENSE_STATUS,
                 **summary,
             },
             ensure_ascii=False,

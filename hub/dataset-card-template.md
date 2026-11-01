@@ -6,7 +6,7 @@ task_categories:
 pretty_name: ImobAI Synthetic Portuguese Real Estate Intents
 size_categories:
   - n<1K
-license: other
+license: cc-by-4.0
 ---
 
 # ImobAI Synthetic Portuguese Real Estate Intents
@@ -23,11 +23,12 @@ and no messages collected from people, companies, or real customer interactions.
 **Version:** $version  
 **Content SHA-256:** `$content_hash`  
 **Source project:** $github_url  
+**License:** Creative Commons Attribution 4.0 International (`cc-by-4.0`)
+
 **License status:** `$license_status`
 
-Publication must remain blocked until the dataset license is reviewed. The
-repository metadata mentions MIT for project code, but no standalone license file
-currently establishes that the same decision applies to the synthetic data.
+The dataset license applies to the synthetic dataset package. Project source
+code and the model artifact have separate licenses.
 
 ## Structure and splits
 

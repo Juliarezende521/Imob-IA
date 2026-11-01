@@ -1,5 +1,8 @@
 # Imob AI
 
+Código-fonte licenciado sob a licença MIT. O dataset sintético e o artefato do
+modelo possuem licenças próprias, respectivamente CC BY 4.0 e Apache 2.0.
+
 Projeto de **engenharia de IA** aplicado a um problema imobiliário sintético.
 A prioridade é construir uma solução tecnicamente sólida, com Machine Learning,
 avaliação reproduzível, busca semântica e RAG com fontes.
@@ -98,8 +101,8 @@ Stack principal: Python, Pydantic, scikit-learn, FastAPI, HTTPX e Streamlit.
 
 O projeto prepara, sem publicar, dois pacotes separados: o dataset sintético de
 384 mensagens e o baseline TF-IDF + Regressão Logística em formato `skops`. O
-challenge permanece excluído. A publicação está bloqueada até uma decisão de
-licença e não há links ou badges que aleguem hospedagem atual.
+challenge permanece excluído. As licenças foram declaradas, mas a publicação
+continua sendo uma etapa manual e não há links ou badges falsos de hospedagem.
 
 ```bash
 python -m pip install -e '.[hub,dev]'

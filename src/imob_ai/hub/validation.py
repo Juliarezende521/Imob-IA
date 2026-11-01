@@ -15,10 +15,14 @@ from imob_ai.hub.metadata import (
     CHALLENGE_MANIFEST,
     CHALLENGE_RECEIPT,
     CHALLENGE_SOURCE,
+    DATASET_LICENSE_ID,
     DATASET_SOURCE,
     GITHUB_URL,
     LABELS,
     LICENSE_STATUS,
+    MODEL_LICENSE_ID,
+    PROJECT_ROOT,
+    PUBLICATION_STATUS,
     SOURCE_HASHES,
 )
 from imob_ai.intent.dataset import PERSONAL_DATA_PATTERNS, normalize_message
@@ -30,6 +34,12 @@ SECRET_PATTERNS = {
         r"\b(?:api[_-]?key|password|secret|token)\s*[:=]\s*[^<\s]+",
         re.IGNORECASE,
     ),
+}
+APPROVED_PUBLIC_URLS = {
+    GITHUB_URL,
+    "https://creativecommons.org/licenses/by/4.0/legalcode",
+    "http://www.apache.org/licenses/",
+    "http://www.apache.org/licenses/LICENSE-2.0",
 }
 
 
@@ -64,6 +74,9 @@ def validate_source_hashes() -> None:
     }
     if observed != SOURCE_HASHES:
         raise HubValidationError(f"Hashes de origem divergentes: {observed}")
+    code_license = (PROJECT_ROOT / "LICENSE").read_text(encoding="utf-8")
+    if not code_license.startswith("MIT License\n"):
+        raise HubValidationError("A licença MIT do código-fonte está ausente.")
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -139,6 +152,21 @@ def validate_exported_dataset(dataset_dir: Path) -> dict[str, Any]:
     }
 
 
+def validate_dataset_package_files(dataset_dir: Path) -> None:
+    expected_top_level = {"README.md", "LICENSE", "manifest.json", "data"}
+    observed_top_level = {path.name for path in dataset_dir.iterdir()}
+    if observed_top_level != expected_top_level:
+        differences = observed_top_level ^ expected_top_level
+        raise HubValidationError(f"Arquivos inesperados no dataset: {differences}")
+    expected_data_files = {"train.jsonl", "validation.jsonl", "test.jsonl"}
+    observed_data_files = {
+        path.name for path in (dataset_dir / "data").iterdir() if path.is_file()
+    }
+    if observed_data_files != expected_data_files:
+        differences = observed_data_files ^ expected_data_files
+        raise HubValidationError(f"Arquivos inesperados nos dados: {differences}")
+
+
 def parse_card_yaml(path: Path) -> dict[str, Any]:
     content = path.read_text(encoding="utf-8")
     if not content.startswith("---\n") or "\n---\n" not in content[4:]:
@@ -153,10 +181,10 @@ def parse_card_yaml(path: Path) -> dict[str, Any]:
 def validate_manifest(package_dir: Path) -> dict[str, Any]:
     manifest_path = package_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if manifest.get("status") != "prepared_not_published":
+    if manifest.get("status") != PUBLICATION_STATUS:
         raise HubValidationError("Status de publicação inválido.")
     if manifest.get("license_status") != LICENSE_STATUS:
-        raise HubValidationError("Revisão de licença deve permanecer pendente.")
+        raise HubValidationError("Status de licença declarado incorretamente.")
     if not manifest.get("challenge_excluded"):
         raise HubValidationError("Manifesto não declara exclusão do challenge.")
     expected_files = {
@@ -175,7 +203,9 @@ def validate_package_texts(package_dirs: Iterable[Path]) -> None:
             if not path.is_file() or path.suffix == ".skops":
                 continue
             content = path.read_text(encoding="utf-8")
-            sanitized = content.replace(GITHUB_URL, "")
+            sanitized = content
+            for approved_url in APPROVED_PUBLIC_URLS:
+                sanitized = sanitized.replace(approved_url, "")
             if PERSONAL_DATA_PATTERNS["url"].search(sanitized):
                 raise HubValidationError(f"URL não aprovada em {path}.")
             for label, pattern in SECRET_PATTERNS.items():
@@ -207,6 +237,7 @@ def validate_model_package(model_dir: Path) -> dict[str, Any]:
     from skops.io import get_untrusted_types, load
 
     required = {
+        "LICENSE",
         "README.md",
         "config.json",
         "requirements.txt",
@@ -257,14 +288,29 @@ def validate_model_package(model_dir: Path) -> dict[str, Any]:
 def validate_all_packages(output_dir: Path) -> dict[str, Any]:
     dataset_dir = output_dir / "intent-dataset"
     model_dir = output_dir / "intent-model"
+    validate_dataset_package_files(dataset_dir)
     dataset_summary = validate_exported_dataset(dataset_dir)
     model_summary = validate_model_package(model_dir)
     dataset_card = parse_card_yaml(dataset_dir / "README.md")
     model_card = parse_card_yaml(model_dir / "README.md")
-    if dataset_card.get("license") != "other" or model_card.get("license") != "other":
-        raise HubValidationError("Cards devem manter licença pendente como 'other'.")
+    if dataset_card.get("license") != DATASET_LICENSE_ID:
+        raise HubValidationError("Dataset card deve declarar cc-by-4.0.")
+    if model_card.get("license") != MODEL_LICENSE_ID:
+        raise HubValidationError("Model card deve declarar apache-2.0.")
     dataset_manifest = validate_manifest(dataset_dir)
     model_manifest = validate_manifest(model_dir)
+    if dataset_manifest.get("license") != DATASET_LICENSE_ID:
+        raise HubValidationError("Manifesto do dataset possui licença incorreta.")
+    if model_manifest.get("license") != MODEL_LICENSE_ID:
+        raise HubValidationError("Manifesto do modelo possui licença incorreta.")
+    if "Creative Commons Attribution 4.0 International" not in (
+        dataset_dir / "LICENSE"
+    ).read_text(encoding="utf-8"):
+        raise HubValidationError("Texto CC BY 4.0 ausente do pacote do dataset.")
+    if "Apache License\n                           Version 2.0" not in (
+        model_dir / "LICENSE"
+    ).read_text(encoding="utf-8"):
+        raise HubValidationError("Texto Apache 2.0 ausente do pacote do modelo.")
     if (
         dataset_manifest["dataset_content_sha256"]
         != model_manifest["dataset_content_sha256"]

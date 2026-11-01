@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import shutil
 import sys
 import zipfile
 from pathlib import Path
@@ -16,6 +17,7 @@ from imob_ai.hub.metadata import (
     GITHUB_URL,
     LABELS,
     LICENSE_STATUS,
+    MODEL_LICENSE_ID,
     MODEL_REQUIREMENTS,
     PACKAGE_VERSION,
     PROJECT_ROOT,
@@ -179,6 +181,10 @@ def export_model(package_dir: Path, dataset_hash: str) -> dict[str, object]:
     from skops.io import dump
 
     package_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(
+        PROJECT_ROOT / "hub" / "licenses" / "Apache-2.0.txt",
+        package_dir / "LICENSE",
+    )
     pipeline = build_final_pipeline()
     model_path = package_dir / "model.skops"
     dump(pipeline, model_path)
@@ -274,6 +280,7 @@ def export_model(package_dir: Path, dataset_hash: str) -> dict[str, object]:
                 "scikit-learn": sklearn.__version__,
             },
             "frozen_metrics": FROZEN_METRICS,
+            "license": MODEL_LICENSE_ID,
         },
     )
     return manifest
