@@ -1,12 +1,15 @@
+import pytest
+
 from imob_ai.ui.presenters import (
     SCORE_EXPLANATION,
     format_area,
     format_currency,
     format_score,
+    format_unresolved_constraint,
     human_follow_up,
     uncertainty_label,
 )
-from imob_ai.ui.schemas import Classification
+from imob_ai.ui.schemas import Classification, UnresolvedConstraint
 
 
 def classification(requires_review: bool = False) -> Classification:
@@ -46,3 +49,101 @@ def test_human_actions_are_identified():
     assert human_follow_up("human_review")
     assert human_follow_up("human_financial_support")
     assert not human_follow_up("search_properties")
+
+
+def unresolved(field: str, value: str, reason: str) -> UnresolvedConstraint:
+    return UnresolvedConstraint(field=field, value=value, reason=reason)
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "expected"),
+    [
+        (
+            "bedrooms",
+            "até 3 quartos",
+            "Quartos: até 3 quartos — limite máximo entendido, mas ainda não suportado",
+        ),
+        (
+            "bathrooms",
+            "até 2 banheiros",
+            "Banheiros: até 2 banheiros — limite máximo entendido, mas ainda não "
+            "suportado",
+        ),
+        (
+            "parking_spaces",
+            "até 1 vaga",
+            "Vagas de garagem: até 1 vaga — limite máximo entendido, mas ainda "
+            "não suportado",
+        ),
+        (
+            "area_m2",
+            "até 100 m",
+            "Área: até 100 m — limite máximo entendido, mas ainda não suportado",
+        ),
+    ],
+)
+def test_formats_unsupported_upper_bound(field, value, expected):
+    text = format_unresolved_constraint(
+        unresolved(field, value, "limite_maximo_nao_suportado")
+    )
+    assert text == expected
+    assert "não encontrado" not in text
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "reason", "expected"),
+    [
+        (
+            "city",
+            "Sorocaba",
+            "nao_encontrada_no_catalogo",
+            "Cidade: Sorocaba — critério não encontrado no catálogo sintético",
+        ),
+        (
+            "neighborhood",
+            "Jardim Secreto",
+            "nao_encontrado_no_catalogo",
+            "Bairro: Jardim Secreto — critério não encontrado no catálogo sintético",
+        ),
+        (
+            "purpose",
+            "aluguel / venda",
+            "valores_contraditorios",
+            "Finalidade: aluguel / venda — valores contraditórios; revise o critério",
+        ),
+        (
+            "property_type",
+            "casa / terreno",
+            "conflito_com_filtro_explicito",
+            "Tipo de imóvel: casa / terreno — conflito entre a mensagem e o "
+            "filtro informado",
+        ),
+        (
+            "neighborhood",
+            "Centro",
+            "nao_disponivel_na_cidade",
+            "Bairro: Centro — critério precisa de esclarecimento",
+        ),
+    ],
+)
+def test_formats_unresolved_reasons(field, value, reason, expected):
+    assert format_unresolved_constraint(unresolved(field, value, reason)) == expected
+
+
+def test_unknown_field_uses_generic_label():
+    text = format_unresolved_constraint(unresolved("outro", "x", "outro_motivo"))
+    assert text == "Critério: x — critério precisa de esclarecimento"
+
+
+def test_unresolved_text_adds_no_markdown():
+    value = "**negrito** [link](https://exemplo.invalid)"
+    text = format_unresolved_constraint(
+        unresolved("city", value, "nao_encontrada_no_catalogo")
+    )
+    assert text.startswith("Cidade: ")
+    assert text.count("**") == 2
+    assert text.replace(value, "") == (
+        "Cidade:  — critério não encontrado no catálogo sintético"
+    )
+    for marker in ("`", "#", "<", "\\"):
+        assert marker not in text
