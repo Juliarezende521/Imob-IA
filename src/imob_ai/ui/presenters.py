@@ -1,6 +1,6 @@
 """Transformações puras para apresentação na interface."""
 
-from imob_ai.ui.schemas import Classification, Property
+from imob_ai.ui.schemas import Classification, Property, UnresolvedConstraint
 
 SCORE_EXPLANATION = (
     "O model_score representa a força relativa da decisão do classificador e "
@@ -18,6 +18,27 @@ ACTION_LABELS = {
     "human_support": "Atendimento humano",
     "out_of_scope": "Fora do escopo",
 }
+
+UNRESOLVED_FIELD_LABELS = {
+    "bedrooms": "Quartos",
+    "bathrooms": "Banheiros",
+    "parking_spaces": "Vagas de garagem",
+    "area_m2": "Área",
+    "city": "Cidade",
+    "neighborhood": "Bairro",
+    "purpose": "Finalidade",
+    "property_type": "Tipo de imóvel",
+}
+
+UNRESOLVED_REASON_TEXTS = {
+    "limite_maximo_nao_suportado": "limite máximo entendido, mas ainda não suportado",
+    "nao_encontrada_no_catalogo": "critério não encontrado no catálogo sintético",
+    "nao_encontrado_no_catalogo": "critério não encontrado no catálogo sintético",
+    "valores_contraditorios": "valores contraditórios; revise o critério",
+    "conflito_com_filtro_explicito": "conflito entre a mensagem e o filtro informado",
+}
+
+UNKNOWN_REASON_TEXT = "critério precisa de esclarecimento"
 
 
 def format_currency(value: float) -> str:
@@ -54,3 +75,10 @@ def property_summary(property_: Property) -> str:
         f"{property_.property_type.value.title()} para "
         f"{property_.purpose.value} em {property_.city}"
     )
+
+
+def format_unresolved_constraint(constraint: UnresolvedConstraint) -> str:
+    """Devolve texto simples, sem Markdown, para exibição literal."""
+    label = UNRESOLVED_FIELD_LABELS.get(constraint.field, "Critério")
+    reason = UNRESOLVED_REASON_TEXTS.get(constraint.reason, UNKNOWN_REASON_TEXT)
+    return f"{label}: {constraint.value} — {reason}"

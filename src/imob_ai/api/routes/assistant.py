@@ -122,13 +122,14 @@ def _clarification_message(
             f"(“{constraint.value}”), mas esse filtro ainda não é suportado. "
             "Reformule a busca sem esse limite."
         )
+    # Rótulo com artigo explícito para manter a concordância de gênero.
     labels = {
-        "neighborhood": "bairro",
-        "city": "cidade",
-        "purpose": "finalidade",
-        "property_type": "tipo de imóvel",
+        "neighborhood": "o bairro",
+        "city": "a cidade",
+        "purpose": "a finalidade",
+        "property_type": "o tipo de imóvel",
     }
-    label = labels.get(constraint.field, "restrição")
+    label = labels.get(constraint.field, "a restrição")
     options: list[str] = []
     if constraint.field == "neighborhood" and interpretation.extracted_filters.city:
         city = interpretation.extracted_filters.city
@@ -138,7 +139,7 @@ def _clarification_message(
     elif constraint.field == "city":
         options = sorted({item.city for item in services.catalog})[:6]
     base = (
-        f"Não encontrei ou não pude resolver o {label} “{constraint.value}” no "
+        f"Não encontrei ou não pude resolver {label} “{constraint.value}” no "
         "catálogo sintético. Confira ou reformule esse critério."
     )
     if options:

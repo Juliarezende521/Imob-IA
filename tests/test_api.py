@@ -421,16 +421,16 @@ def test_unsupported_upper_bound_has_specific_message(message, label, source):
     assert "catálogo" not in body["message"]
 
 
-def test_unknown_city_message_is_preserved():
+def test_unknown_city_message_uses_feminine_article():
     body = _route_message("Quero casa em Sorocaba.")
     assert body["message"] == (
-        "Não encontrei ou não pude resolver o cidade “Sorocaba” no catálogo "
+        "Não encontrei ou não pude resolver a cidade “Sorocaba” no catálogo "
         "sintético. Confira ou reformule esse critério. Opções disponíveis: "
         "Belo Horizonte, Campinas, Curitiba, Franca, Ribeirão Preto, São Paulo."
     )
 
 
-def test_unknown_neighborhood_message_is_preserved():
+def test_unknown_neighborhood_message_uses_masculine_article():
     body = _route_message("Quero casa no Jardim Secreto em Franca.")
     assert body["message"].startswith(
         "Não encontrei ou não pude resolver o bairro “Jardim Secreto” no "
@@ -439,9 +439,17 @@ def test_unknown_neighborhood_message_is_preserved():
     )
 
 
-def test_contradictory_values_message_is_preserved():
+def test_contradictory_purpose_message_uses_feminine_article():
     body = _route_message("Quero alugar ou comprar uma casa.")
     assert body["message"] == (
-        "Não encontrei ou não pude resolver o finalidade “aluguel / venda” no "
+        "Não encontrei ou não pude resolver a finalidade “aluguel / venda” no "
         "catálogo sintético. Confira ou reformule esse critério."
+    )
+
+
+def test_contradictory_property_type_message_uses_masculine_article():
+    body = _route_message("Quero casa ou terreno.")
+    assert body["message"] == (
+        "Não encontrei ou não pude resolver o tipo de imóvel “casa / terreno” "
+        "no catálogo sintético. Confira ou reformule esse critério."
     )

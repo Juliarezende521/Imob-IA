@@ -13,6 +13,7 @@ from imob_ai.ui.presenters import (
     format_area,
     format_currency,
     format_score,
+    format_unresolved_constraint,
     human_follow_up,
     property_summary,
     uncertainty_label,
@@ -85,7 +86,8 @@ def render_property_cards(result: PropertySearchResult) -> None:
 def render_assistant_result(result: AssistantResult, submitted_message: str) -> None:
     classification = result.classification
     st.caption("Mensagem enviada nesta sessão")
-    st.write(submitted_message)
+    # Texto digitado pelo usuário: exibição literal, sem Markdown nem HTML.
+    st.text(submitted_message)
     first, second, third = st.columns(3)
     first.metric("Intenção", classification.intent)
     second.metric("model_score", format_score(classification.model_score))
@@ -143,9 +145,10 @@ def render_interpretation(interpretation: QueryInterpretation) -> None:
                 else ""
             )
             st.markdown(f"- **{label}:** {value}{correction}")
+        if interpretation.unresolved_constraints:
+            st.caption("Critérios que precisam de esclarecimento")
         for constraint in interpretation.unresolved_constraints:
-            label = labels.get(constraint.field, constraint.field)
-            st.markdown(f"- **{label}:** {constraint.value} — não encontrado")
+            st.text(format_unresolved_constraint(constraint))
         if interpretation.remaining_text:
             st.caption(
                 "Características usadas no ranking lexical: "

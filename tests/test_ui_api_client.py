@@ -423,5 +423,95 @@ def test_app_presents_interpreted_filters_and_unresolved_location(monkeypatch):
     assert "Finalidade" in rendered and "aluguel" in rendered
     assert "Tipo" in rendered and "casa" in rendered
     assert "Cidade" in rendered and "Franca" in rendered
-    assert "city petropolis" in rendered and "não encontrado" in rendered
+    unresolved = [item.value for item in app.text]
+    assert (
+        "Bairro: city petropolis — critério não encontrado no catálogo sintético"
+        in unresolved
+    )
+    assert "city petropolis" not in rendered
     assert any("não foi executada" in item.value for item in app.warning)
+
+
+def _app_with_route_result(monkeypatch, result):
+    from streamlit.testing.v1 import AppTest
+
+    from imob_ai.ui import api_client
+    from imob_ai.ui.schemas import HealthLive, HealthReady
+
+    monkeypatch.setattr(
+        api_client.ImobAiApiClient,
+        "health_live",
+        lambda self: HealthLive(status="alive"),
+    )
+    monkeypatch.setattr(
+        api_client.ImobAiApiClient,
+        "health_ready",
+        lambda self: HealthReady(
+            status="ready",
+            classifier_ready=True,
+            catalog_ready=True,
+            configuration_valid=True,
+        ),
+    )
+    monkeypatch.setattr(
+        api_client.ImobAiApiClient,
+        "route",
+        lambda self, message, search_filters=None: result,
+    )
+    return AppTest.from_file("src/imob_ai/ui/app.py").run(timeout=10)
+
+
+def test_app_shows_submitted_message_as_literal_text(monkeypatch):
+    from imob_ai.ui.schemas import AssistantResult
+
+    result = AssistantResult(
+        classification=CLASSIFICATION,
+        action="out_of_scope",
+        message="Mensagem controlada pela aplicação.",
+        search=None,
+        generative_ai_used=False,
+    )
+    message = "**negrito** ![imagem](https://exemplo.invalid/x.png) [link](https://exemplo.invalid)"
+    app = _app_with_route_result(monkeypatch, result)
+    app.text_area[0].input(message)
+    app.button[0].click().run(timeout=10)
+
+    assert not app.exception
+    assert message in [item.value for item in app.text]
+    assert all("exemplo.invalid" not in item.value for item in app.markdown)
+
+
+def test_app_shows_unsupported_upper_bound_without_not_found(monkeypatch):
+    from imob_ai.ui.schemas import AssistantResult
+
+    interpretation = {
+        **INTERPRETATION,
+        "original_query": "casa com até 3 quartos",
+        "unresolved_constraints": [
+            {
+                "field": "bedrooms",
+                "value": "até 3 quartos",
+                "reason": "limite_maximo_nao_suportado",
+            }
+        ],
+    }
+    result = AssistantResult(
+        classification=CLASSIFICATION,
+        action="clarify_search",
+        message="Limite máximo ainda não suportado.",
+        search=None,
+        interpreted_query=interpretation,
+        requires_clarification=True,
+        generative_ai_used=False,
+    )
+    app = _app_with_route_result(monkeypatch, result)
+    app.text_area[0].input("casa com até 3 quartos")
+    app.button[0].click().run(timeout=10)
+
+    texts = [item.value for item in app.text]
+    assert not app.exception
+    assert (
+        "Quartos: até 3 quartos — limite máximo entendido, mas ainda não suportado"
+        in texts
+    )
+    assert all("não encontrado" not in value for value in texts)
