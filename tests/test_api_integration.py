@@ -20,3 +20,13 @@ def test_real_startup_trains_baseline_once_without_transformer_or_challenge():
         assert first.json() == second.json()
         assert client.app.state.runtime.services.classifier.fit_count == 1
     assert ("imob_ai.intent_transformer.model" in sys.modules) == before_transformer
+
+
+def test_real_startup_unavailable_search_filters_before_limit():
+    with TestClient(create_app()) as client:
+        body = client.post(
+            "/v1/properties/search", json={"available": False, "limit": 2}
+        ).json()
+    assert len(body["results"]) == 2
+    assert all(not item["property"]["available"] for item in body["results"])
+    assert body["total"] > len(body["results"])

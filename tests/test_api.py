@@ -119,7 +119,8 @@ def test_property_search_text_filters_limit_and_synthetic_flag():
     assert response.status_code == 200
     assert body["synthetic_data"] is True
     assert body["search_engine"] == "lexical"
-    assert body["total"] <= 2
+    assert len(body["results"]) <= 2
+    assert body["total"] >= len(body["results"])
     assert all(item["property"]["city"] == "Franca" for item in body["results"])
 
 
@@ -453,3 +454,73 @@ def test_contradictory_property_type_message_uses_masculine_article():
         "Não encontrei ou não pude resolver o tipo de imóvel “casa / terreno” "
         "no catálogo sintético. Confira ou reformule esse critério."
     )
+
+
+UNAVAILABLE = [item for item in CATALOG if not item.available]
+AVAILABLE = [item for item in CATALOG if item.available]
+
+
+def _search(payload):
+    client, _ = client_for()
+    with client:
+        response = client.post("/v1/properties/search", json=payload)
+    assert response.status_code == 200
+    return response.json()
+
+
+def test_catalog_has_unavailable_properties_after_small_limit():
+    assert len(UNAVAILABLE) > 3
+    assert CATALOG[0].available
+
+
+@pytest.mark.parametrize("limit", [1, 2, 3])
+def test_unavailable_filter_runs_before_limit(limit):
+    body = _search({"available": False, "limit": limit})
+    assert len(body["results"]) == limit
+    assert all(not item["property"]["available"] for item in body["results"])
+    assert body["total"] == len(UNAVAILABLE)
+
+
+@pytest.mark.parametrize(
+    ("limit", "returned"),
+    [
+        (50, len(UNAVAILABLE)),
+        (len(UNAVAILABLE), len(UNAVAILABLE)),
+        (len(UNAVAILABLE) - 1, len(UNAVAILABLE) - 1),
+    ],
+)
+def test_unavailable_limit_above_equal_and_below_total(limit, returned):
+    body = _search({"available": False, "limit": limit})
+    assert len(body["results"]) == returned
+    assert body["total"] == len(UNAVAILABLE)
+
+
+def test_unavailable_page_keeps_search_order():
+    full = _search({"available": False, "limit": 50})
+    page = _search({"available": False, "limit": 3})
+    assert page["results"] == full["results"][:3]
+
+
+def test_available_true_counts_all_matches_before_limit():
+    body = _search({"available": True, "limit": 3})
+    assert len(body["results"]) == 3
+    assert all(item["property"]["available"] for item in body["results"])
+    assert body["total"] == len(AVAILABLE)
+
+
+@pytest.mark.parametrize("payload", [{"limit": 3}, {"available": None, "limit": 3}])
+def test_missing_or_null_available_keeps_current_available_only_behavior(payload):
+    body = _search(payload)
+    assert all(item["property"]["available"] for item in body["results"])
+    assert body["total"] == len(AVAILABLE)
+
+
+def test_total_matches_filtered_quantity_and_can_exceed_page():
+    expected = [
+        item for item in CATALOG if not item.available and item.purpose.value == "venda"
+    ]
+    assert len(expected) > 1
+    body = _search({"available": False, "purpose": "venda", "limit": 1})
+    assert len(body["results"]) == 1
+    assert body["results"][0]["property"]["purpose"] == "venda"
+    assert body["total"] == len(expected)
