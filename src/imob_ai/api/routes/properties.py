@@ -20,16 +20,21 @@ def execute_search(
     services: AppServices,
     fallback_text: Optional[str] = None,
 ) -> PropertySearchResponse:
+    # Todos os filtros, inclusive a disponibilidade, vêm antes do limite.
     query = request.to_query(fallback_text=fallback_text)
-    result = search_properties(services.catalog, query)
+    result = search_properties(
+        services.catalog, query.model_copy(update={"limit": None})
+    )
     items = result.items
     if request.available is False:
         items = [item for item in items if not item.property.available]
+    # total conta os imóveis filtrados; results traz só a página pedida.
     return PropertySearchResponse(
         applied_filters=request.applied_filters(fallback_text),
         total=len(items),
         results=[
-            PropertySearchItem.model_validate(item.model_dump()) for item in items
+            PropertySearchItem.model_validate(item.model_dump())
+            for item in items[: request.limit]
         ],
     )
 
