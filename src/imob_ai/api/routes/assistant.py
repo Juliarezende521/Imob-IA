@@ -108,6 +108,20 @@ def _clarification_message(
     interpretation: QueryInterpretation, services: AppServices
 ) -> str:
     constraint = interpretation.unresolved_constraints[0]
+    if constraint.reason == "limite_maximo_nao_suportado":
+        # O valor foi entendido; o que falta é o filtro na busca.
+        upper_bound_labels = {
+            "bedrooms": "quartos",
+            "bathrooms": "banheiros",
+            "parking_spaces": "vagas de garagem",
+            "area_m2": "área",
+        }
+        label = upper_bound_labels.get(constraint.field, "esse critério")
+        return (
+            f"Entendi que você informou um limite máximo para {label} "
+            f"(“{constraint.value}”), mas esse filtro ainda não é suportado. "
+            "Reformule a busca sem esse limite."
+        )
     labels = {
         "neighborhood": "bairro",
         "city": "cidade",

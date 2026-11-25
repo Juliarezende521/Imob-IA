@@ -31,6 +31,17 @@ conservadora de `acasa` também aparece explicitamente.
   acentos normalizados e preferência pela correspondência mais longa.
 - **Padrões adicionais:** preço máximo, quartos ou dormitórios mínimos,
   banheiros, garagem, animais e mobília em construções explícitas.
+- **Preço máximo:** `até` ou `no máximo`, com `R$`, separador de milhar
+  (`R$ 1.200.000`), `mil`, `milhão` ou `milhões`.
+- **Quantidade mínima:** `com`, `e`, `a partir de`, `pelo menos` ou
+  `no mínimo` seguidos de número e quarto(s), dormitório(s) ou banheiro(s).
+- **Limite máximo sem filtro:** `até 3 quartos`, `até 2 banheiros`,
+  `até 1 vaga`, `até 100 m²` e `até 2 mil metros quadrados` não viram preço.
+  Eles geram esclarecimento com motivo `limite_maximo_nao_suportado`, porque a
+  busca não tem esse filtro. A API responde que o limite foi entendido, mas
+  ainda não é suportado.
+- **Estado do imóvel:** `em bom estado`, `em ótimo estado` e
+  `em boas condições` não são tratados como localização.
 
 Não existe corretor ortográfico genérico. O único erro tolerado inicialmente é
 `acasa`, como alias explícito de `casa`.

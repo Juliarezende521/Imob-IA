@@ -392,3 +392,56 @@ def test_repeated_and_concurrent_requests_reuse_classifier_and_catalog():
     assert classifier.fit_count == 1
     assert classifier.calls == 12
     assert tuple(item.id for item in CATALOG) == original_catalog
+
+
+def _route_message(message):
+    client, _ = client_for(FakeClassifier(intent="BUSCA_IMOVEL"))
+    with client:
+        return client.post("/v1/assistant/route", json={"message": message}).json()
+
+
+@pytest.mark.parametrize(
+    ("message", "label", "source"),
+    [
+        ("Quero casa com até 3 quartos.", "quartos", "até 3 quartos"),
+        ("Quero apartamento com até 2 banheiros.", "banheiros", "até 2 banheiros"),
+        ("Quero apartamento com até 1 vaga.", "vagas de garagem", "até 1 vaga"),
+        ("Quero terreno com até 2 mil m².", "área", "até 2 mil m"),
+    ],
+)
+def test_unsupported_upper_bound_has_specific_message(message, label, source):
+    body = _route_message(message)
+    assert body["action"] == "clarify_search"
+    assert body["search"] is None
+    assert body["message"] == (
+        f"Entendi que você informou um limite máximo para {label} "
+        f"(“{source}”), mas esse filtro ainda não é suportado. "
+        "Reformule a busca sem esse limite."
+    )
+    assert "catálogo" not in body["message"]
+
+
+def test_unknown_city_message_is_preserved():
+    body = _route_message("Quero casa em Sorocaba.")
+    assert body["message"] == (
+        "Não encontrei ou não pude resolver o cidade “Sorocaba” no catálogo "
+        "sintético. Confira ou reformule esse critério. Opções disponíveis: "
+        "Belo Horizonte, Campinas, Curitiba, Franca, Ribeirão Preto, São Paulo."
+    )
+
+
+def test_unknown_neighborhood_message_is_preserved():
+    body = _route_message("Quero casa no Jardim Secreto em Franca.")
+    assert body["message"].startswith(
+        "Não encontrei ou não pude resolver o bairro “Jardim Secreto” no "
+        "catálogo sintético. Confira ou reformule esse critério. "
+        "Opções disponíveis: "
+    )
+
+
+def test_contradictory_values_message_is_preserved():
+    body = _route_message("Quero alugar ou comprar uma casa.")
+    assert body["message"] == (
+        "Não encontrei ou não pude resolver o finalidade “aluguel / venda” no "
+        "catálogo sintético. Confira ou reformule esse critério."
+    )
