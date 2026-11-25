@@ -14,10 +14,15 @@ from imob_ai.query_understanding.schemas import (
 )
 from imob_ai.query_understanding.vocabulary import (
     CONSERVATIVE_CORRECTIONS,
+    MIN_QUANTITY_NOUNS,
+    MIN_QUANTITY_PREFIXES,
+    MONEY_MULTIPLIERS,
+    NON_LOCATION_PREFIXES,
     NON_LOCATION_TERMS,
     PROPERTY_TYPE_ALIASES,
     PURPOSE_ALIASES,
     STOPWORDS,
+    UPPER_BOUND_NOUNS,
 )
 from imob_ai.search.normalization import normalize_text
 
@@ -142,6 +147,10 @@ def _location_candidate(tokens: list[Token], start: int, end: int) -> str:
     return " ".join(candidate).strip()
 
 
+def _starts_with_any(words: list[str], prefixes: Sequence[tuple[str, ...]]) -> bool:
+    return any(tuple(words[: len(prefix)]) == prefix for prefix in prefixes)
+
+
 def _detect_unknown_location(
     tokens: list[Token],
     city_span: Optional[tuple[int, int]],
@@ -195,6 +204,9 @@ def _detect_unknown_location(
                 value
                 and normalized_value not in NON_LOCATION_TERMS
                 and not normalized_value.startswith("condominio")
+                and not _starts_with_any(
+                    normalized[index + 1 : end], NON_LOCATION_PREFIXES
+                )
             ):
                 consumed.update(range(index, end))
                 unresolved.append(
@@ -212,7 +224,8 @@ def _number(tokens: list[Token], index: int) -> tuple[Optional[float], int]:
         return None, index
     pieces = [tokens[index].normalized]
     end = index + 1
-    if (
+    # O tokenizador separa "1.200.000" em "1", "200" e "000".
+    while (
         end < len(tokens)
         and len(tokens[end].normalized) == 3
         and tokens[end].normalized.isdigit()
@@ -222,63 +235,112 @@ def _number(tokens: list[Token], index: int) -> tuple[Optional[float], int]:
     return float("".join(pieces)), end
 
 
+def _extract_max_price(
+    tokens: list[Token],
+    consumed: set[int],
+    recognized: list[RecognizedConstraint],
+    unresolved: list[UnresolvedConstraint],
+) -> Optional[float]:
+    normalized = [token.normalized for token in tokens]
+    for index in range(len(tokens)):
+        if normalized[index] == "ate":
+            number_start = index + 1
+        elif normalized[index : index + 2] == ["no", "maximo"]:
+            number_start = index + 2
+        else:
+            continue
+        if number_start < len(tokens) and normalized[number_start] == "r":
+            number_start += 1
+        value, end = _number(tokens, number_start)
+        if value is None:
+            continue
+        multiplier = 1
+        if end < len(tokens) and normalized[end] in MONEY_MULTIPLIERS:
+            multiplier = MONEY_MULTIPLIERS[normalized[end]]
+            end += 1
+        # "até 3 quartos" ou "até 2 mil m²" é limite de quantidade, não preço.
+        noun = normalized[end] if end < len(tokens) else None
+        if noun in UPPER_BOUND_NOUNS:
+            end += 1
+            if noun == "metros" and normalized[end : end + 1] == ["quadrados"]:
+                end += 1
+            consumed.update(range(index, end))
+            unresolved.append(
+                UnresolvedConstraint(
+                    field=UPPER_BOUND_NOUNS[noun],
+                    value=_source(tokens, index, end),
+                    reason="limite_maximo_nao_suportado",
+                )
+            )
+            continue
+        value *= multiplier
+        if end < len(tokens) and normalized[end] == "reais":
+            end += 1
+        consumed.update(range(index, end))
+        recognized.append(
+            RecognizedConstraint(
+                field="max_price",
+                value=value,
+                source_text=_source(tokens, index, end),
+            )
+        )
+        return value
+    return None
+
+
+def _extract_min_quantities(
+    tokens: list[Token],
+    consumed: set[int],
+    recognized: list[RecognizedConstraint],
+) -> dict[str, int]:
+    normalized = [token.normalized for token in tokens]
+    values: dict[str, int] = {}
+    for index in range(1, len(tokens) - 1):
+        noun = normalized[index + 1]
+        if (
+            index in consumed
+            or not normalized[index].isdigit()
+            or noun not in MIN_QUANTITY_NOUNS
+        ):
+            continue
+        prefix = next(
+            (
+                prefix
+                for prefix in MIN_QUANTITY_PREFIXES
+                if index >= len(prefix)
+                and tuple(normalized[index - len(prefix) : index]) == prefix
+            ),
+            None,
+        )
+        if prefix is None:
+            continue
+        start = index - len(prefix)
+        field = MIN_QUANTITY_NOUNS[noun]
+        values[field] = int(normalized[index])
+        consumed.update(range(start, index + 2))
+        recognized.append(
+            RecognizedConstraint(
+                field=field,
+                value=values[field],
+                source_text=_source(tokens, start, index + 2),
+            )
+        )
+    return values
+
+
 def _extract_numeric_and_boolean(
     tokens: list[Token],
     consumed: set[int],
     recognized: list[RecognizedConstraint],
+    unresolved: list[UnresolvedConstraint],
 ) -> dict[str, object]:
     normalized = [token.normalized for token in tokens]
     values: dict[str, object] = {}
 
-    for index in range(len(tokens)):
-        price_start = None
-        if normalized[index] == "ate":
-            price_start = index + 1
-        elif normalized[index : index + 2] == ["no", "maximo"]:
-            price_start = index + 2
-        if price_start is not None:
-            if price_start < len(tokens) and normalized[price_start] == "r":
-                price_start += 1
-            value, end = _number(tokens, price_start)
-            if value is not None:
-                values["max_price"] = value
-                consumed.update(range(index, end))
-                if end < len(tokens) and normalized[end] == "reais":
-                    consumed.add(end)
-                    end += 1
-                recognized.append(
-                    RecognizedConstraint(
-                        field="max_price",
-                        value=value,
-                        source_text=_source(tokens, index, end),
-                    )
-                )
-                break
-
-    quantity_patterns = [
-        (["a", "partir", "de"], "quartos", "min_bedrooms"),
-        (["pelo", "menos"], "quartos", "min_bedrooms"),
-        (["pelo", "menos"], "dormitorios", "min_bedrooms"),
-        (["com"], "banheiros", "min_bathrooms"),
-    ]
-    for prefix, noun, field in quantity_patterns:
-        for index in range(len(tokens) - len(prefix) - 1):
-            if normalized[index : index + len(prefix)] != prefix:
-                continue
-            number_index = index + len(prefix)
-            value, end = _number(tokens, number_index)
-            if value is None or end >= len(tokens) or normalized[end] != noun:
-                continue
-            integer = int(value)
-            values[field] = integer
-            consumed.update(range(index, end + 1))
-            recognized.append(
-                RecognizedConstraint(
-                    field=field,
-                    value=integer,
-                    source_text=_source(tokens, index, end + 1),
-                )
-            )
+    max_price = _extract_max_price(tokens, consumed, recognized, unresolved)
+    if max_price is not None:
+        values["max_price"] = max_price
+    values.update(_extract_min_quantities(tokens, consumed, recognized))
 
     phrase_fields = [
         (("com", "garagem"), "min_parking_spaces", 1),
@@ -387,7 +449,7 @@ def interpret_property_query(
         consumed,
         unresolved,
     )
-    extra = _extract_numeric_and_boolean(tokens, consumed, recognized)
+    extra = _extract_numeric_and_boolean(tokens, consumed, recognized, unresolved)
     filters = ExtractedPropertyFilters(
         purpose=purpose,
         property_type=property_type,
